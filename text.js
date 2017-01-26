@@ -1,33 +1,24 @@
-var inputTalk
-var question
 
-
-
-
-
-
-
-function talkInput(){
-inputTalk = document.getElementById("input").value;
+//function talkInput(){
 //document.getElemmentById("chat-area").textContent += inputTalk;
-question = "Player: " + inputTalk + "<br>";
-document.getElementById("chat-area").innerHTML += question;
+//question = "Player: " + inputTalk + "<br>";
+//document.getElementById("chat-area").innerHTML += question;
 
 
-var Attack = question.search(/Attack/i);
-var Pickup = question.search(/Pick Up/i);
-var Use = question.search(/Use/i);
-var MoveW = question.search(/Move West/i);
-var MoveE = question.search(/Move East/i);
-var MoveN = question.search(/Move North/i);
-var MoveS = question.search(/Move South/i);
-var Look = question.search(/Look Around/i);
+//var Attack = question.search(/Attack/i);
+//var Pickup = question.search(/Pick Up/i);
+//var Use = question.search(/Use/i);
+//var MoveW = question.search(/Move West/i);
+//var MoveE = question.search(/Move East/i);
+//var MoveN = question.search(/Move North/i);
+//var MoveS = question.search(/Move South/i);
+//var Look = question.search(/Look Around/i);
 //var x = question.search(/link/i);
 //var y = question.search(/special/i);
 //var z = question.search(/mistake/i);
 //var da = new Date(Date.now());
 //var img = ["http://new3.fjcdn.com/comments/Fun+fact+diamonds+are+not+valuable+previous+or+rare+but+_c6d2a1d43b3782715a23aadfc13b0050.jpg",
-"http://i2.kym-cdn.com/photos/images/original/000/783/510/50f.jpg"];
+//"http://i2.kym-cdn.com/photos/images/original/000/783/510/50f.jpg"];
 
 //var reaction = ["I am well, I am glad to see the direction that society has gone.", "I am the MASTER OF THE UNIVERSE!!!!, I am always well",
 //"I ponder, I think, Mind wanders, it's pink, I leave, I arrive, I am Steve, and  I sure can jive.", "I is not my time.",
@@ -41,25 +32,72 @@ var Look = question.search(/Look Around/i);
 function randomNumberGenerator(min, max){
 return Math.floor(Math.random()*(max-min+1)+min);
 }
-console.log(Hero);
+//console.log(Hero);
 
-inputTalk = document.getElementById("input").value = null;
+//inputTalk = document.getElementById("input").value = null;
 
+var text
+var hero = false
+var part1 = true
+var part2 = false
+var part3 = false
+var part4 = false
+var inventory = false
+var inputTalk
+var question
 
-
-
-if(Hero > -1){
-  document.getElementById("chat-area").innerHTML += "A goblin attacks you, do you a. attack  b. defend  c. run away" + "<br>";
-  if(Attack > -1){
-    document.getElementById("chat-area").innerHTML += "Your sword impails it and it turns to smoke" + "</br>"
+function run1(){
+  inputTalk = document.getElementById("input").value;
+  if(inputTalk == "1" && part1 == true){
+    text = "Choose A Character: 1. The Hero  2. The Builder  3. The Wizard"
+    document.getElementById("chat-area").innerHTML += text
+    part1 = false
+    part2 = true
+    inputTalk= ""
+    document.getElementById("input").value = null
   }
-  else if(Defend > -1){
-  document.getElementById("chat-area").innerHTML += "The Goblin's club overpowers you and die" + "</br>"
+  if(inputTalk == "1" && part2 == true){
+    text = "</br>" + "You have chosen wisely my friend, to the north, there is a village, to the south, there is a forest, to the east, there is a cave, to the west, there is a mountain" + "</br>" +
+    "Choose one of the following directions(type in the indicated number)" + "<br>" + "1. North" + "</br>" + " 2. South" + "</br>" +
+    "3. East" + "</br>" + "4. West"
+    document.getElementById("chat-area").innerHTML += text
+    part2 = false
+    part3 = true
+    hero = true
+    inputTalk=""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "1" && part3 == true && inventory == false){
+    text = "</br>" + "There are a variety of shops and stores, one sells weapons, another sells potions, another will give you cold hard cash for your items, but you have neither cash or items, so I suggest you just go back" +
+    "</br>" + "0. Go back"
+    document.getElementById("chat-area").innerHTML += text
+    part3 = false
+    part4 = true
+    inputTalk= ""
+    document.getElementById("input").value = null
+  }
+
 }
-else if(Retreat > -1){
-  document.getElementById("chat-area").innerHTML += "You ran away" + "</br>"
-}
-}
+
+
+
+
+
+
+
+
+//if(Hero > -1){
+  //document.getElementById("chat-area").innerHTML += "A goblin attacks you, do you a. attack  b. defend  c. run away" + "<br>";
+  //if(Attack > -1){
+    //document.getElementById("chat-area").innerHTML += "Your sword impails it and it turns to smoke" + "</br>"
+  //}
+  //else if(Defend > -1){
+  //document.getElementById("chat-area").innerHTML += "The Goblin's club overpowers you and die" + "</br>"
+//}
+//else if(Retreat > -1){
+  //document.getElementById("chat-area").innerHTML += "You ran away" + "</br>"
+//}
+//}
 
 //else if(Builder > -1){
   //document.getElementById("chat-area").innerHTML += "MASTER OF THE UNIVERSE!!!!: I am a little past my prime. " + "<br>";
@@ -105,7 +143,7 @@ else if(Retreat > -1){
   //document.getElementById("chat-area").innerHTML += "MASTER OF THE UNIVERSE!!!!: " + notListening[randomNumberGenerator(0,3)]  + "<br>";
 //}
 
-}
+//}
 
 function askInput(){
 var asker = ["What is your occupation?", "How old are you?", "Do you even code bro?"];

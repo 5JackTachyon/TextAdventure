@@ -42,6 +42,8 @@ var part1 = true
 var part2 = false
 var part3 = false
 var part4 = false
+var goblin1Life = 5
+var heroHealth = 10
 var inventory = false
 var inputTalk
 var question
@@ -64,7 +66,6 @@ function run1(){
     part2 = false
     part3 = true
     hero = true
-    health = 10
     inputTalk=""
     document.getElementById("input").value = null
   }
@@ -90,6 +91,21 @@ if(hero == true && inputTalk == "2" && part3 == true){
   inputTalk=""
   document.getElementById("input").value = null
 }
+if(hero == true && inputTalk == "A" && part3 == true){
+  text = "</br>" + "The goblin took 3 damage, it has 2 life left, goblin uses arrow boomerang attack, press C to continue"
+  document.getElementById("chat-area").innerHTML += text
+  goblin1Life = goblin1Life - 2
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+var boomerang = randomNumberGenerator(1,2)
+  if(boomerang == 1 && hero == true && inputTalk == "C" && part3 == true){
+    text = "</br>" + "The goblin inflicts three damage to your life. Would you like to" + "</br>" + "A. use slash" + "</br>" + "B. use uppercut"
+    document.getElementById("chat-area").innerHTML += text
+    heroHealth = heroHealth - 3
+    inputTalk=""
+    document.getElementById("input").value = null
+  }
 }
 
 

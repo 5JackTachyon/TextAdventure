@@ -64,6 +64,7 @@ function run1(){
     part2 = false
     part3 = true
     hero = true
+    health = 10
     inputTalk=""
     document.getElementById("input").value = null
   }
@@ -71,12 +72,24 @@ function run1(){
     text = "</br>" + "There are a variety of shops and stores, one sells weapons, another sells potions, another will give you cold hard cash for your items, but you have neither cash or items, so I suggest you just go back" +
     "</br>" + "0. Go back"
     document.getElementById("chat-area").innerHTML += text
-    part3 = false
-    part4 = true
     inputTalk= ""
     document.getElementById("input").value = null
   }
-
+if(hero == true && inputTalk == "0" && part3 == true){
+  text = "</br>" + "You have chosen wisely my friend, to the north, there is a village, to the south, there is a forest, to the east, there is a cave, to the west, there is a mountain" + "</br>" +
+  "Choose one of the following directions(type in the indicated number)" + "<br>" + "1. North" + "</br>" + " 2. South" + "</br>" +
+  "3. East" + "</br>" + "4. West"
+  document.getElementById("chat-area").innerHTML += text
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+if(hero == true && inputTalk == "2" && part3 == true){
+  text = "</br>" + "A goblin appears, you must fight it, which attack would you like to use" + "</br>" +
+   "A. use slash" + "</br>" + "B. use uppercut"
+  document.getElementById("chat-area").innerHTML += text
+  inputTalk=""
+  document.getElementById("input").value = null
+}
 }
 
 

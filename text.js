@@ -42,7 +42,7 @@ var part1 = true
 var part2 = false
 var part3 = false
 var part4 = false
-var fight1Turn1 = false
+var fight1Turn1 = true
 var fight1Turn2 = false
 var fightOneTurnOne = false
 var goblin1Life = 5
@@ -94,29 +94,30 @@ if(hero == true && inputTalk == "2" && part3 == true){
   inputTalk=""
   document.getElementById("input").value = null
 }
-if(hero == true && inputTalk == "A" && fight1Turn1 == false && part3 == true){
+if(hero == true && inputTalk == "A" && fight1Turn1 == true && part3 == true){
   text = "</br>" + "The goblin took 2 damage, it has 3 life left, goblin uses arrow boomerang attack, press C to continue"
   document.getElementById("chat-area").innerHTML += text
   goblin1Life = goblin1Life - 2
-  fight1Turn1 = true
+  fight1Turn1 = false
+  fight1Turn2 = true
   inputTalk=""
   document.getElementById("input").value = null
 }
 var boomerang = randomNumberGenerator(1,2)
-  if(randomNumberGenerator(1,2) == 1 && hero == true && inputTalk == "C" && part3 == true && fight1Turn1 == true){
+  if(randomNumberGenerator(1,2) == 1 && hero == true && inputTalk == "C" && part3 == true && fight1Turn2 == true){
     text = "</br>" + "The goblin inflicts three damage to your life. Would you like to" + "</br>" + "A. use slash" + "</br>" + "B. use uppercut"
     document.getElementById("chat-area").innerHTML += text
     heroHealth = heroHealth - 3
     inputTalk=""
     document.getElementById("input").value = null
   }
-  if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 == true && fight1Turn1 == true){
+  if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 == true && fight1Turn2 == true){
     text = "</br>" + "The goblin missed, it inflicted 0 damage to your life" + "</br>" + "A. use slash" + "</br>" + "B. use uppercut"
     document.getElementById("chat-area").innerHTML += text
     inputTalk=""
     document.getElementById("input").value = null
   }
- if(hero == true && inputTalk == "B" && fight1Turn1 == false && part3 == true){
+ if(hero == true && inputTalk == "B" && fight1Turn2 == false && part3 == true){
    text = "</br>" + "The goblin took 1 damage, it has 4 life left, the goblin is dazed, and it does not attack. using uppercut again would be ineffective, use slash!"
    document.getElementById("chat-area").innerHTML += text
    goblin1Life = goblin1Life - 3
@@ -124,13 +125,14 @@ var boomerang = randomNumberGenerator(1,2)
    inputTalk=""
    document.getElementById("input").value = null
  }
- if(hero == true && inputTalk == "A" && fight1Turn1 == true && part3 == true){
+ if(hero == true && inputTalk == "A" && part3 == true && fight1Turn2 == true){
    text = "</br>" + "The goblin took 2 more damage, it has 1 life left, goblin uses boomerang, press C to continue."
    goblin1Life = goblin1Life - 2
    fight1Turn1 = false
    fight1Turn2 = true
    inputTalk=""
    document.getElementById("input").value = null
+   console.log("ji");
  }
 }
 

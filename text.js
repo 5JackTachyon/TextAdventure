@@ -57,6 +57,7 @@ var goblin1Life = 5
 //cave variables
 var Traveller = false
 var Powerplay = false
+var Puzzle = false
 //general stats
 var heroHealth = 10
 var inventory = false
@@ -386,7 +387,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
    inputTalk=""
    document.getElementById("input").value = null
  }
- if(hero == true && inputTalk == "1" && part4 == true && Traveller == false){
+ if(hero == true && inputTalk == "1" && part4 == true && Traveller == false && Powerplay == false){
    text = "</br>" + "You look around the Traveller's Repose and see objects on the floor, you can now type Look ____ based on the name of the noun of interest to discover things, there are also to paths."
    + "</br>" + "1. Left" + "</br>" + "2. Right"
    document.getElementById("chat-area").innerHTML += text
@@ -409,7 +410,28 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
    Traveller = false
    Powerplay = true
    inputTalk=""
-   document.getElementById("input").value
+   document.getElementById("input").value = null
+ }
+ if(hero == true && inputTalk == "Look Sign" && part4 == true && Powerplay == true){
+   text = "</br>" + "Sign: This room is called The Puzzle"
+   document.getElementById("chat-area").innerHTML += text
+   inputTalk=""
+   document.getElementById("input").value = null
+ }
+ if(hero == true && inputTalk == "Look The Puzzle" && part4 == true && Powerplay == true){
+   text = "</br>" + "The back wall reads this: You can pick up the items you see around the room by typing 'Pickup' and then the item"
+   document.getElementById("chat-area").innerHTML += text
+   inputTalk=""
+   document.getElementById("input").value = null
+ }
+ if(hero == true && inputTalk == "1" && part4 == true && Powerplay == true){
+   text = "</br>" + "Hero: I am Ms. Piggy, I command the frog, using his love for me against him" + "</br>" +
+   "Man: I am Jim Henson, I command all the muppets" + "</br>" + "1. Hero: I am the bank" + "</br>" + "Or" + "</br>" + "2. Hero: I am the audience"
+   document.getElementById("chat-area").innerHTML += text
+   Powerplay = false
+   Puzzle = true
+   inputTalk=""
+   document.getElementById("input").value = null
  }
 }
 

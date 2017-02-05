@@ -42,6 +42,7 @@ var part1 = true
 var part2 = false
 var part3 = false
 var part4 = false
+//fight1 variables
 var fight1Turn1 = true
 var fight1Turn2 = false
 var fight1Turn3 = false
@@ -50,7 +51,13 @@ var fightOneTurnTwo = false
 var fight1TurnTwo = false
 var fight1TurnThree = false
 var fightOneTurn2 = false
+var fightOneTurnFour = false
+var fightOneTurn3 = false
 var goblin1Life = 5
+//cave variables
+var Traveller = false
+var Powerplay = false
+//general stats
 var heroHealth = 10
 var inventory = false
 var coins = 0
@@ -100,7 +107,8 @@ if(hero == true && inputTalk == "2" && part3 == true){
   inputTalk=""
   document.getElementById("input").value = null
 }
-if(hero == true && inputTalk == "A" && fight1Turn1 == true && part3 == true && fightOneTurnOne == false && fight1TurnThree == false && fightOneTurnTwo == false){
+//first A
+if(hero == true && inputTalk == "A" && fight1Turn1 == true && part3 == true && fightOneTurnOne == false && fight1TurnThree == false && fightOneTurnTwo == false && fightOneTurnFour == false){
   text = "</br>" + "The goblin took 2 damage, it has 3 life left, goblin uses arrow boomerang attack, press C to continue"
   document.getElementById("chat-area").innerHTML += text
   goblin1Life = goblin1Life - 2
@@ -123,7 +131,8 @@ var boomerang = randomNumberGenerator(1,2)
     inputTalk=""
     document.getElementById("input").value = null
   }
- if(hero == true && inputTalk == "B" && fight1Turn2 == false && fight1TurnTwo == false && fight1TurnThree == false && fight1Turn3 == false && fightOneTurnOne == false&& fightOneTurnTwo == false && part3 == true){
+  //first B
+ if(hero == true && inputTalk == "B" && fight1Turn2 == false && fight1TurnTwo == false && fight1TurnThree == false && fight1Turn3 == false && fightOneTurnOne == false && fightOneTurnTwo == false && part3 == true && fightOneTurnFour == false && fightOneTurn2 == false){
    text = "</br>" + "The goblin took 1 damage, it has 4 life left, the goblin is dazed, and it does not attack. Would you like to" +
    "</br>" + "A. use slash" + "</br>" + "B. use uppercut"
    document.getElementById("chat-area").innerHTML += text
@@ -132,6 +141,7 @@ var boomerang = randomNumberGenerator(1,2)
    inputTalk=""
    document.getElementById("input").value = null
  }
+ //first A, second A
  if(hero == true && inputTalk == "A" && fight1Turn2 == true && part3 == true){
    text = "</br>" + "The goblin took 2 more damage, it has 1 life left, goblin uses boomerang, press C to continue."
    document.getElementById("chat-area").innerHTML += text
@@ -155,6 +165,7 @@ var boomerang = randomNumberGenerator(1,2)
    inputTalk=""
    document.getElementById("input").value = null
  }
+ //first B, then A
  if(hero == true && inputTalk == "A" && part3 == true && fight1Turn2 == false && fightOneTurnOne == true){
    text = "</br>" + "The goblin took 2 more damage, it has 2 life left, you MUST press C to continue"
    document.getElementById("chat-area").innerHTML += text
@@ -165,6 +176,7 @@ var boomerang = randomNumberGenerator(1,2)
    document.getElementById("input").value = null
    console.log("hi");
  }
+ //first A, then B
  if(hero == true && inputTalk == "B" && part3 == true && fight1Turn2 == true){
    text = "</br>" + "The goblin is dazed so it can not attack and 1 damage is inflicted, the goblin has 2 life left, would you like to" + "</br>" +
    "A. use slash" + "</br>" + "B. use uppercut"
@@ -175,6 +187,7 @@ var boomerang = randomNumberGenerator(1,2)
    inputTalk=""
    document.getElementById("input").value = null
  }
+ //first B, second B
  if(hero == true && inputTalk == "B" && part3 == true && fightOneTurnOne == true && fight1Turn2 == false){
    text = "</br>" + "Trying uppercut again was ineffective since the goblin was already dazed, but he takes one damage and wakes up, press C to continue"
    document.getElementById("chat-area").innerHTML += text
@@ -198,20 +211,21 @@ var boomerang = randomNumberGenerator(1,2)
    inputTalk=""
    document.getElementById("input").value = null
  }
- if(randomNumberGenerator(1,2) == 1 && hero == true && inputTalk == "C" && part3 == true && fight1Turn2 == false && fightOneTurnOne == true){
-   text = "</br>" + "The goblin uses boomerang and inflicts three damage to your life, would you like to" + "</br>" + "A. use slash" + "</br>" + "B. use uppercut"
-   document.getElementById("chat-area").innerHTML += text
-   heroHealth = heroHealth - 3
-   inputTalk=""
-   document.getElementById("input").value = null
- }
- if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 == true && fight1Turn2 == false && fightOneTurnOne == true){
-   text = "</br>" + "The goblin uses boomerang but he misses, no damage is inflicted to your life, would you like to" + "</br>" +
-   "A. use slash" + "</br>" + "B. use uppercut"
-   document.getElementById("chat-area").innerHTML += text
-   inputTalk=""
-   document.getElementById("input").value = null
- }
+ //if(randomNumberGenerator(1,2) == 1 && hero == true && inputTalk == "C" && part3 == true && fight1Turn2 == false && fightOneTurnOne == true){
+   //text = "</br>" + "The goblin uses boomerang and inflicts three damage to your life, would you like to" + "</br>" + "A. use slash" + "</br>" + "B. use uppercut"
+   //document.getElementById("chat-area").innerHTML += text
+   //heroHealth = heroHealth - 3
+   //inputTalk=""
+   //document.getElementById("input").value = null
+ //}
+ //if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 == true && fight1Turn2 == false && fightOneTurnOne == true){
+   //text = "</br>" + "The goblin uses boomerang but he misses, no damage is inflicted to your life, would you like to" + "</br>" +
+   //"A. use slash" + "</br>" + "B. use uppercut"
+   //document.getElementById("chat-area").innerHTML += text
+   //inputTalk=""
+   //document.getElementById("input").value = null
+ //}
+ //first A, second A, third A
  if(hero == true && inputTalk == "A" && part3 == true && fight1Turn3 == true && fight1Turn2 == false){
    text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press C to continue." +
    "</marquee>"
@@ -221,6 +235,7 @@ var boomerang = randomNumberGenerator(1,2)
    inputTalk=""
    document.getElementById("input").value = null
  }
+ //first A, second A, then B
  if(hero == true && inputTalk == "B" && part3 == true && fight1Turn3 == true && fight1Turn2 == false){
    text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press C to continue." +
    "</marquee>"
@@ -230,6 +245,7 @@ var boomerang = randomNumberGenerator(1,2)
    inputTalk=""
    document.getElementById("input").value = null
  }
+ //first A, then B, then A
  if(hero == true && inputTalk == "A" && part3 == true && fight1Turn2 == false && fight1TurnTwo == true){
    text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press C to continue." +
    "</marquee>"
@@ -239,6 +255,7 @@ var boomerang = randomNumberGenerator(1,2)
    inputTalk=""
    document.getElementById("input").value = null
  }
+ //first A, then B, then B
  if(hero == true && inputTalk == "B" && part3 == true && fight1Turn2 == false && fight1TurnTwo == true){
    text = "</br>" + "The goblin takes one damage but is already dazed and cannot be dazed again, so it wakes up, press C to continue"
    document.getElementById("chat-area").innerHTML += text
@@ -264,6 +281,7 @@ var boomerang = randomNumberGenerator(1,2)
    inputTalk=""
    document.getElementById("input").value = null
 }
+//first A, then B, then B, then A
 if(hero == true && inputTalk == "A" && part3 == true && fight1TurnTwo == false && fight1TurnThree == true){
   text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press C to continue." +
   "</marquee>"
@@ -273,6 +291,7 @@ if(hero == true && inputTalk == "A" && part3 == true && fight1TurnTwo == false &
   inputTalk=""
   document.getElementById("input").value = null
 }
+//first A, then B, then B, then B
 if(hero == true && inputTalk == "B" && part3 == true && fight1TurnTwo == false && fight1TurnThree == true){
   text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press C to continue." +
   "</marquee>"
@@ -282,6 +301,7 @@ if(hero == true && inputTalk == "B" && part3 == true && fight1TurnTwo == false &
   inputTalk=""
   document.getElementById("input").value = null
 }
+//first B, then A, then A
 if(hero == true && inputTalk == "A" && part3 == true && fightOneTurnTwo == true && fightOneTurnOne == false){
   text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press C to continue." +
   "</marquee>"
@@ -291,14 +311,106 @@ if(hero == true && inputTalk == "A" && part3 == true && fightOneTurnTwo == true 
   inputTalk=""
   document.getElementById("input").value = null
 }
+//first B, then A, then B
 if(hero == true && inputTalk == "B" && part3 == true && fightOneTurnTwo == true && fightOneTurnOne == false){
   text = "</br>" + "The goblin is dazed again, it is unable to attack and takes one damage" + "</br>" +
   "A. use slash" + "</br>" + "B. use uppercut"
   document.getElementById("chat-area").innerHTML += text
   goblin1Life = goblin1Life - 1
+  fightOneTurnTwo = false
+  fightOneTurnFour = true
   inputTalk=""
   document.getElementById("input").value = null
 }
+//first B, then A, then B, then A
+if(hero == true && inputTalk == "A" && part3 == true && fightOneTurnFour === true && fightOneTurnTwo == false){
+  text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press C to continue." +
+  "</marquee>"
+  document.getElementById("chat-area").innerHTML += text
+  inventory = true
+  coins = coins + 5
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//first B, then A, then B, then B
+if(hero == true && inputTalk == "B" && part3 == true && fightOneTurnFour == true && fightOneTurnTwo == false){
+  text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press C to continue." +
+  "</marquee>"
+  document.getElementById("chat-area").innerHTML += text
+  inventory = true
+  coins = coins + 5
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+
+if(randomNumberGenerator(1,2) == 1 && hero == true && inputTalk == "C" && part3 == true && fightOneTurn2 == true && fightOneTurnOne == false){
+  text = "</br>" + "The goblin's boomerang hits you straight in the face, you take three damage." + "</br>" +
+  "A. use slash" + "</br>" + "B. use uppercut"
+  document.getElementById("chat-area").innerHTML += text
+  heroHealth = heroHealth - 3
+  fightOneTurn2 == false
+  fightOneTurn3 == true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 == true && fightOneTurn2 == true && fightOneTurnTwo == false){
+  text = "</br>" + "It's the goblin's boomerang missed and he almost hit himself! You take no damage." + "</br>" +
+  "A. use slash" + "</br>" + "B. use uppercut"
+  document.getElementById("chat-area").innerHTML += text
+  fightOneTurn2 == false
+  fightOneTurn3 == true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+
+//first B, then B, then B
+ if(hero == true && inputTalk == "A" && part3 == true && fightOneTurn3 == true && fightOneTurn2 == false){
+   text = "</br>" + "The goblin is successfully dazed! it has 2 life left and cannot attack, hit em hard!" +
+   "</br>" + "A. use slash" + "</br>" + "B. use uppercut"
+   document.getElementById("chat-area").innerHTML += text
+   inputTalk=""
+   document.getElementById("input").value = null
+ }
+
+
+
+
+
+
+ if(hero == true && inputTalk == "3" && part3 == true){
+   text = "</br>" + "You enter the dark cave, you see two paths you can take, left or right, choose wisely." + "</br>" +
+   "1. Left" + "</br>" + "2. Right"
+   document.getElementById("chat-area").innerHTML += text
+   part3 = false
+   part4 = true
+   inputTalk=""
+   document.getElementById("input").value = null
+ }
+ if(hero == true && inputTalk == "1" && part4 == true && Traveller == false){
+   text = "</br>" + "You look around the Traveller's Repose and see objects on the floor, you can now type Look ____ based on the name of the noun of interest to discover things, there are also to paths."
+   + "</br>" + "1. Left" + "</br>" + "2. Right"
+   document.getElementById("chat-area").innerHTML += text
+   Traveller = true
+   inputTalk=""
+   document.getElementById("input").value = null
+ }
+ if(hero == true && inputTalk == "Look Traveller's Repose" && part4 == true && Traveller == true){
+   text = "</br>" + "You look around and see a Scroll, a Bone, and a Ruby there are also still two paths" + "</br>" + "1. Left"
+    + "</br>" + "2. Right"
+    document.getElementById("chat-area").innerHTML += text
+    inputTalk=""
+    document.getElementById("input").value = null
+ }
+ if(hero == true && inputTalk == "1" && part4 == true && Traveller == true){
+   text = "</br>" + "You walk past a Sign, you see a man in front of you, the man speaks" + "</br>" +
+   "Man: Let's play a game, you are the fly, I'll go first, I am the frog, who eats the fly" + "</br>" +
+   "1. Hero: I am Ms. Piggy" + "</br>" + "Or" + "</br>" + "2. Hero: I am the Lillypad"
+   document.getElementById("chat-area").innerHTML += text
+   Traveller = false
+   Powerplay = true
+   inputTalk=""
+   document.getElementById("input").value
+ }
 }
 
 

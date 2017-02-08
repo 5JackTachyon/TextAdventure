@@ -58,6 +58,8 @@ var goblin1Life = 5
 var Traveller = false
 var Powerplay = false
 var Puzzle = false
+var Money = false
+var humanity = false
 //general stats
 var heroHealth = 10
 var inventory = false
@@ -387,7 +389,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
    inputTalk=""
    document.getElementById("input").value = null
  }
- if(hero == true && inputTalk == "1" && part4 == true && Traveller == false && Powerplay == false){
+ if(hero == true && inputTalk == "1" && part4 == true && Traveller == false && Powerplay == false && Puzzle == false && Money == false && humanity == false){
    text = "</br>" + "You look around the Traveller's Repose and see objects on the floor, you can now type Look ____ based on the name of the noun of interest to discover things, there are also to paths."
    + "</br>" + "1. Left" + "</br>" + "2. Right"
    document.getElementById("chat-area").innerHTML += text
@@ -433,6 +435,26 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
    inputTalk=""
    document.getElementById("input").value = null
  }
+ if(hero == true && inputTalk == "1" && part4 == true && Puzzle == true){
+   text = "</br>" + "Hero: I am the bank, without my  loans you would be desolate."  + "</br>" +
+   "Man: I am money, without me you would be nothing." + "</br>" + "1. Hero: I am greed" + "</br>" + "Or" + "</br>" +
+   "2. Hero: I am the wealthy"
+   document.getElementById("chat-area").innerHTML += text
+   Puzzle = false
+   Money = true
+   inputTalk=""
+   document.getElementById("input").value = null
+ }
+ if(hero == true && inputTalk == "1" && part4 == true && Money == true){
+  text = "</br>" + "Hero: I am greed, without me there would be money, I consume it without savoring." + "</br>" +
+  "Man: I am Man, I am the root of all evil" + "</br>" + "1. Hero: I am mortality, the thing that kills all" + "</br>" +
+  "Or" + "</br>" + "2. Hero: I am the child, uncorrupt by greed"
+  document.getElementById("chat-area").innerHTML += text
+  Money = false
+  humanity = true
+  inputTalk=""
+  document.getElementById("input").value = null
+  }
 }
 
 

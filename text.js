@@ -55,11 +55,13 @@ var fightOneTurnFour = false
 var fightOneTurn3 = false
 var goblin1Life = 5
 //cave variables
+var firstcave = false
 var Traveller = false
 var Powerplay = false
 var Puzzle = false
 var Money = false
 var humanity = false
+var society = false
 //general stats
 var heroHealth = 10
 var inventory = false
@@ -380,7 +382,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
 
 
 
- if(hero == true && inputTalk == "3" && part3 == true){
+ if(hero == true && inputTalk == "3" && part3 == true && firstcave == false){
    text = "</br>" + "You enter the dark cave, you see two paths you can take, left or right, choose wisely." + "</br>" +
    "1. Left" + "</br>" + "2. Right"
    document.getElementById("chat-area").innerHTML += text
@@ -389,7 +391,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
    inputTalk=""
    document.getElementById("input").value = null
  }
- if(hero == true && inputTalk == "1" && part4 == true && Traveller == false && Powerplay == false && Puzzle == false && Money == false && humanity == false){
+ if(hero == true && inputTalk == "1" && part4 == true && Traveller == false && Powerplay == false && Puzzle == false && Money == false && humanity == false && society == false){
    text = "</br>" + "You look around the Traveller's Repose and see objects on the floor, you can now type Look ____ based on the name of the noun of interest to discover things, there are also to paths."
    + "</br>" + "1. Left" + "</br>" + "2. Right"
    document.getElementById("chat-area").innerHTML += text
@@ -454,6 +456,25 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
   humanity = true
   inputTalk=""
   document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "1" && part4 == true && humanity == true){
+    text = "</br>" + "Hero: I am mortality" + "</br>" + "Man: I am, I am, you win traveler, take 5 coins, and a new fighting move, Skyward Sword"
+    + "the man gives you his gifts and tells you how to get out of the cave, you are back to the start, press 0 to continue."
+    document.getElementById("chat-area").innerHTML += text
+    humanity = false
+    part4 = false
+    part3 = true
+    imputTalk=""
+    document.getElementsById("input").value = null
+  }
+  if(hero == true && inputTalk == "2" && part4 == true && humanity == true){
+    text= "</br>" + "Hero: I am the child" + "</br>" + "Man: I am the teacher, who molds and shapes the child's mind" + "</br>"
+    + "Hero: I am the schoolboard" + "</br>" + "Or" + "</br>" + "Hero: I am the union"
+    document.getElementById("chat-area").innerHTML += text
+    humanity = false
+    firstcave = true
+    inputTalk=""
+    document.getElementById("input").innerHTML = null
   }
 }
 

@@ -62,6 +62,7 @@ var Puzzle = false
 var Money = false
 var humanity = false
 var society = false
+var school = false
 //general stats
 var heroHealth = 10
 var inventory = false
@@ -391,7 +392,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
    inputTalk=""
    document.getElementById("input").value = null
  }
- if(hero == true && inputTalk == "1" && part4 == true && Traveller == false && Powerplay == false && Puzzle == false && Money == false && humanity == false && society == false){
+ if(hero == true && inputTalk == "1" && part4 == true && Traveller == false && Powerplay == false && Puzzle == false && Money == false && humanity == false && society == false && firstcave == false && school == false){
    text = "</br>" + "You look around the Traveller's Repose and see objects on the floor, you can now type Look ____ based on the name of the noun of interest to discover things, there are also to paths."
    + "</br>" + "1. Left" + "</br>" + "2. Right"
    document.getElementById("chat-area").innerHTML += text
@@ -469,12 +470,32 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
   }
   if(hero == true && inputTalk == "2" && part4 == true && humanity == true){
     text= "</br>" + "Hero: I am the child" + "</br>" + "Man: I am the teacher, who molds and shapes the child's mind" + "</br>"
-    + "Hero: I am the schoolboard" + "</br>" + "Or" + "</br>" + "Hero: I am the union"
+    + "1. Hero: I am the schoolboard" + "</br>" + "Or" + "</br>" + "2. Hero: I am the union"
     document.getElementById("chat-area").innerHTML += text
     humanity = false
     firstcave = true
     inputTalk=""
     document.getElementById("input").innerHTML = null
+  }
+  if(hero == true && inputTalk == "1" && part4 == true && humanity == true){
+    text = "</br>" + "Hero: I am the schoolboard, I command the teachers" + "</br>" +
+    "Man: I am the parents, who complain to the school board and  make it cower to me" + "</br>" + "1. Hero: I am heartbreak" + "</br>" + "Or" +"</br>"
+     + "2. Hero: I am the boss"
+     document.getElementById("chat-area").innerHTML += text
+     firstcave = false
+     school = true
+     inputTalk=""
+     document.getElementById("input").innerHTML += text
+  }
+  if(hero == true && inputTalk == "1" && part4 == true && school == true){
+    text = "</br>" + "Hero: I am heartbreak, I am the thing that breaks the parent's bonds" + "</br>" +
+    "Man: I am the lawyer, who prospers from these events" + "</br>" + "YOU LOSE!"
+     document.getElementById("chat-area").innerHTML += text
+     school = false
+     part4 = false
+     part3 = true
+     inputTalk=""
+     document.getElementById("input").innerHTML += text
   }
 }
 

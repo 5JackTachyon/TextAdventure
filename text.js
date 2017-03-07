@@ -63,6 +63,7 @@ var Money = false
 var humanity = false
 var society = false
 var school = false
+var Gamble = false 
 //general stats
 var heroHealth = 10
 var inventory = false
@@ -392,7 +393,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
    inputTalk=""
    document.getElementById("input").value = null
  }
- if(hero == true && inputTalk == "1" && part4 == true && Traveller == false && Powerplay == false && Puzzle == false && Money == false && humanity == false && society == false && firstcave == false && school == false){
+ if(hero == true && inputTalk == "1" && part4 == true && Traveller == false && Powerplay == false && Puzzle == false && Money == false && humanity == false && society == false && firstcave == false && school == false  Gamble == false){
    text = "</br>" + "You look around the Traveller's Repose and see objects on the floor, you can now type Look ____ based on the name of the noun of interest to discover things, there are also to paths."
    + "</br>" + "1. Left" + "</br>" + "2. Right"
    document.getElementById("chat-area").innerHTML += text
@@ -477,7 +478,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     inputTalk=""
     document.getElementById("input").innerHTML = null
   }
-  if(hero == true && inputTalk == "1" && part4 == true && humanity == true){
+  if(hero == true && inputTalk == "1" && part4 == true && firstcave == true){
     text = "</br>" + "Hero: I am the schoolboard, I command the teachers" + "</br>" +
     "Man: I am the parents, who complain to the school board and  make it cower to me" + "</br>" + "1. Hero: I am heartbreak" + "</br>" + "Or" +"</br>"
      + "2. Hero: I am the boss"
@@ -496,6 +497,36 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
      part3 = true
      inputTalk=""
      document.getElementById("input").innerHTML += text
+  }
+  if(hero == true && inputTalk == "2" && part4 == true && school == true){
+    text = "</br>" + "Hero: I am the boss, I command all" + "</br>" +
+    "Man: I am, I am, you win traveler, take 5 coins, and a new fighting move, Skyward Sword"
+    + "the man gives you his gifts and tells you how to get out of the cave, you are back to the start, press 0 to continue."
+     document.getElementById("chat-area").innerHTML += text
+     school = false
+     part4 = false
+     part3 = true
+     inputTalk=""
+     document.getElementById("input").innerHTML += text
+  }
+  if(hero == true && inputTalk == "2" && part4 == true && firstcave == true){
+    text= "</br>" + "Hero: I am the union, I protect and manipulate the teachers" + "</br>" + "Man: I am ..." + "</br>" +
+    "Suddenly the cave rubbles and begins to collapse, the man bails, your greed consumes you and you run over to steal his stuff, but the cave collapses and you die"
+    document.getElementById("chat-area").innerHTML += text
+    humanity = false
+    firstcave = true
+    inputTalk=""
+    document.getElementById("input").innerHTML = null
+  }
+  if(hero == true && inputTalk == "1" && part4 == true && Money == true){
+    text = "</br>" + "Hero: I am the wealthy, I need not banks for I have more money than even them."  + "</br>" +
+    "Man: I am gambling which destroys the wealth of mankind." + "</br>" + "1. Hero: I am addiction" + "</br>" + "Or" + "</br>" +
+    "2. Hero: I am chance"
+    document.getElementById("chat-area").innerHTML += text
+    Money = false
+    Gamble = true
+    inputTalk=""
+    document.getElementById("input").value = null
   }
 }
 

@@ -63,7 +63,8 @@ var Money = false
 var humanity = false
 var society = false
 var school = false
-var Gamble = false 
+var Gamble = false
+var Entertainment = false
 //general stats
 var heroHealth = 10
 var inventory = false
@@ -393,7 +394,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
    inputTalk=""
    document.getElementById("input").value = null
  }
- if(hero == true && inputTalk == "1" && part4 == true && Traveller == false && Powerplay == false && Puzzle == false && Money == false && humanity == false && society == false && firstcave == false && school == false  Gamble == false){
+ if(hero == true && inputTalk == "1" && part4 == true && Traveller == false && Powerplay == false && Puzzle == false && Money == false && humanity == false && society == false && firstcave == false && school == false && Gamble == false && Entertainment == false){
    text = "</br>" + "You look around the Traveller's Repose and see objects on the floor, you can now type Look ____ based on the name of the noun of interest to discover things, there are also to paths."
    + "</br>" + "1. Left" + "</br>" + "2. Right"
    document.getElementById("chat-area").innerHTML += text
@@ -518,7 +519,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     inputTalk=""
     document.getElementById("input").innerHTML = null
   }
-  if(hero == true && inputTalk == "1" && part4 == true && Money == true){
+  if(hero == true && inputTalk == "2" && part4 == true && Money == true){
     text = "</br>" + "Hero: I am the wealthy, I need not banks for I have more money than even them."  + "</br>" +
     "Man: I am gambling which destroys the wealth of mankind." + "</br>" + "1. Hero: I am addiction" + "</br>" + "Or" + "</br>" +
     "2. Hero: I am chance"
@@ -528,6 +529,55 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     inputTalk=""
     document.getElementById("input").value = null
   }
+  if(hero == true && inputTalk == "1" && part4 == true && Gamble == true){
+    text = "</br>" + "Hero: I am addiction, the thing that drives gambling, without it you would have no purpose"  + "</br>" +
+    "Man: I am therapy, I treat addiction" + "</br>" + "1. Hero: I am therapist" + "</br>"  + "Man: looks like we have a draw, you may leave."
+    document.getElementById("chat-area").innerHTML += text
+    Gamble = false
+    inputTalk=""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "2" && part4 == true && Money == true){
+    text = "</br>" + "Hero: I am chance, I am the hope and the certainty that one lucky soul will not be decrepit from the gamblers lure."  + "</br>" +
+    "Man: I am despair, I counter all hope." + "</br>" + "1. Hero: I am optimism, I am contageous" + "</br>" +
+    "Man: looks like we are at a draw, let's start over"
+    document.getElementById("chat-area").innerHTML += text
+    Gamble = false
+    Powerplay = true
+    inputTalk=""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "2" && part4 == true && Puzzle == true){
+    text = "</br>" + "Hero: I am the audience, I am the reason for you to continue your work, I am your reception, you are but a slave to me"
+    + "</br>" + "Man: I am the critics, write the things that make you come to see the entertainment and what makes you don't." + "</br>"
+     + "1. Hero: I am hype, I am enthusiasm" + "</br>" + "Or" + "</br>" + "2. Hero: I am loyalty"
+    document.getElementById("chat-area").innerHTML += text
+    Puzzle = false
+    Entertainment = true
+    inputTalk=""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "1" && part4 == true && Entertainment == true){
+    text = "</br>" + "Hero: I am hype, I am enthusiasm, I ignore the critics" + "</br>" + "Man: I am disapointment, I bring the object of hype down further."
+     + "</br>" + "Hero: I am, I am, you win [press 0 to continue]"
+    document.getElementById("chat-area").innerHTML += text
+    Entertainment = false
+    part4 =  false
+    part3 = true
+    inputTalk=""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "2" && part4 == true && Entertainment == true){
+    text = "</br>" + "Hero: I am loyalty, I am what brings fans in the end because they feel that they owe me."
+    + "</br>" + "Man: I am betrayal, I break loyalty" + "</br>" + "1. Hero: I am punishment I keep loyalty in line" + "</br>" +
+    "Man: Looks like we are at a draw, lets start over."
+    document.getElementById("chat-area").innerHTML += text
+    Entertainment = false
+    Powerplay = true
+    inputTalk=""
+    document.getElementById("input").value = null
+  }
+  
 }
 
 

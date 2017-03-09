@@ -419,6 +419,15 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
    inputTalk=""
    document.getElementById("input").value = null
  }
+ if(hero == true && inputTalk == "2" && part4 == true && Traveller == true){
+   text = "</br>" + "You enter a Dark Room, you see a skeleton warrior appear" + "</br>" +
+   "Skeleton Warrior: I challenge you to duel! Accept or Die(accept is your only choice) your move!" + "</br>" +
+   "(1.)____ you--->__skeleton____(charge)" + "</br>" + "Or" + "</br>" + "(2.)____you / ____skeleton____(block)"
+   document.getElementById("chat-area").innerHTML += text
+   Traveller = false
+   inputTalk=""
+   document.getElementById("input").value = null
+ }
  if(hero == true && inputTalk == "Look Sign" && part4 == true && Powerplay == true){
    text = "</br>" + "Sign: This room is called The Puzzle"
    document.getElementById("chat-area").innerHTML += text
@@ -428,6 +437,15 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
  if(hero == true && inputTalk == "Look The Puzzle" && part4 == true && Powerplay == true){
    text = "</br>" + "The back wall reads this: You can pick up the items you see around the room by typing 'Pickup' and then the item"
    document.getElementById("chat-area").innerHTML += text
+   inputTalk=""
+   document.getElementById("input").value = null
+ }
+ if(hero == true && inputTalk == "2" && part4 == true && Powerplay == true){
+   text = "</br>" + "Hero: I am the Lillypad" + "</br>" +
+   "Man: Nice try, but you obviously don't understand how this works, you have to counter mine, like I say, 'I am the mouse' you say 'I am the cat that chases the mouse' and I say 'I am the dog that chases the cat' and you say 'I am the flea that plagues the dog' and so on."
+   document.getElementById("chat-area").innerHTML += text
+   Powerplay = false
+   Traveller = true
    inputTalk=""
    document.getElementById("input").value = null
  }
@@ -537,7 +555,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     inputTalk=""
     document.getElementById("input").value = null
   }
-  if(hero == true && inputTalk == "2" && part4 == true && Money == true){
+  if(hero == true && inputTalk == "2" && part4 == true && Gamble == true){
     text = "</br>" + "Hero: I am chance, I am the hope and the certainty that one lucky soul will not be decrepit from the gamblers lure."  + "</br>" +
     "Man: I am despair, I counter all hope." + "</br>" + "1. Hero: I am optimism, I am contageous" + "</br>" +
     "Man: looks like we are at a draw, let's start over"
@@ -577,7 +595,6 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     inputTalk=""
     document.getElementById("input").value = null
   }
-  
 }
 
 

@@ -68,6 +68,8 @@ var Entertainment = false
 
 var duel = false
 var fence = false
+
+var bone = false
 //general stats
 var heroHealth = 10
 var inventory = false
@@ -412,6 +414,31 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     inputTalk=""
     document.getElementById("input").value = null
  }
+ if(hero == true && inputTalk == "Pickup Bone" && part4 == true && Traveller == true){
+   text = "</br>" + "You pick up a Bone, the time will come where this can be used, you'll know when" + "</br>" + "1. Left"
+    + "</br>" + "2. Right"
+    document.getElementById("chat-area").innerHTML += text
+    bone = true
+    inputTalk=""
+    document.getElementById("input").value = null
+ }
+ if(hero == true && inputTalk == "Pickup Scroll" && part4 == true && Traveller == true){
+   text = "</br>" + "You pick up a Scroll that reads 'on the right hand entrance of the cave, go Left, Right, Straight, Straight, Right, Back, Left, Left'"
+   + "</br>" + "1. Left"
+    + "</br>" + "2. Right"
+    document.getElementById("chat-area").innerHTML += text
+    inputTalk=""
+    document.getElementById("input").value = null
+ }
+ if(hero == true && inputTalk == "Pickup Ruby" && part4 == true && Traveller == true){
+   text = "</br>" + "You pick up a Ruby, you are rich! Go to the market and buy more stuff!" + "</br>" + "1. Left"
+    + "</br>" + "2. Right"
+    document.getElementById("chat-area").innerHTML += text
+    inputTalk=""
+    Inventory = true
+    coins = coins + 15
+    document.getElementById("input").value = null
+ }
  if(hero == true && inputTalk == "1" && part4 == true && Traveller == true){
    text = "</br>" + "You walk past a Sign, you see a man in front of you, the man speaks" + "</br>" +
    "Man: Let's play a game, you are the fly, I'll go first, I am the frog, who eats the fly" + "</br>" +
@@ -425,10 +452,14 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
  if(hero == true && inputTalk == "2" && part4 == true && Traveller == true){
    text = "</br>" + "You enter a Dark Room, you see a skeleton warrior appear" + "</br>" +
    "Skeleton Warrior: I challenge you to duel! Accept or Die(accept is your only choice) your move!" + "</br>" +
-   "(1.)____ you--->__skeleton____(charge)" + "</br>" + "Or" + "</br>" + "(2.)____you / ____skeleton____(block)"
+   "(A.)____ you--->__skeleton____(charge)" + "</br>" + "Or" + "</br>" + "(B.)____you / ____skeleton____(block)"
    document.getElementById("chat-area").innerHTML += text
-   Traveller = false
-   duel = true
+   inputTalk=""
+   document.getElementById("input").value = null
+ }
+ if(hero == true && inputTalk == "Look Dark Room" && part4 == true && Traveller == true){
+   text = "</br>" + "You look around and see a Torch, a Sword, and a Chest" + "</br>" + "But you must battle the skeleton, type A or B"
+   document.getElementById("chat-area").innerHTML += text
    inputTalk=""
    document.getElementById("input").value = null
  }
@@ -599,20 +630,21 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     inputTalk=""
     document.getElementById("input").value = null
   }
-  if(hero == true && inputTalk == "1" && part4 == true && duel == true){
+  if(hero == true && inputTalk == "A" && part4 == true && Traveller == true){
     text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--->___/ __skeleton____ (block)" + "</br>" + "nothing happens"
-    "(1.)____<--you__skeleton____(retreat)" + "</br>" + "Or" + "</br>" + "(2.)____you / ____skeleton____(block)"
+    "(A.)____<--you__skeleton____(retreat)" + "</br>" + "Or" + "</br>" + "(B.)____you / ____skeleton____(block)"
     document.getElementById("chat-area").innerHTML += text
-    duel = false
-    fence = true
+    Traveller = false
+    duel = true
     inputTalk=""
     document.getElementById("input").value = null
   }
-  if(hero == true && inputTalk == "1" && part4 == true && fence == true){
-    text = "</br>" + "Skeleton: My turn" + "</br>" + "____<---you___<---__skeleton____ (charge)" + "</br>" + "he is coming right at you!"
-    "(1.)____ you ----><---skeleton____(charge!!!)" + "</br>" + "Or" + "</br>" + "(2.)____you / __<---skeleton____(block)"
+  if(hero == true && inputTalk == "A" && part4 == true && duel == true){
+    text = "</br>" + "Skeleton: My turn" + "</br>" + "____<---you___<---__skeleton____ (charge)" + "</br>" + "he is coming right at you!" + "</br>" +
+    "(A.)____ you ----><---skeleton____(charge!!!)" + "</br>" + "Or" + "</br>" + "(B.)____you / __<---skeleton____(block)"
     document.getElementById("chat-area").innerHTML += text
-    fence = false
+    duel = false
+    fence = true
     inputTalk=""
     document.getElementById("input").value = null
   }

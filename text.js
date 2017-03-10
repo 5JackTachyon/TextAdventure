@@ -65,6 +65,9 @@ var society = false
 var school = false
 var Gamble = false
 var Entertainment = false
+
+var duel = false
+var fence = false
 //general stats
 var heroHealth = 10
 var inventory = false
@@ -394,7 +397,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
    inputTalk=""
    document.getElementById("input").value = null
  }
- if(hero == true && inputTalk == "1" && part4 == true && Traveller == false && Powerplay == false && Puzzle == false && Money == false && humanity == false && society == false && firstcave == false && school == false && Gamble == false && Entertainment == false){
+ if(hero == true && inputTalk == "1" && part4 == true && Traveller == false && Powerplay == false && Puzzle == false && Money == false && humanity == false && society == false && firstcave == false && school == false && Gamble == false && Entertainment == false && duel == false && fence == false){
    text = "</br>" + "You look around the Traveller's Repose and see objects on the floor, you can now type Look ____ based on the name of the noun of interest to discover things, there are also to paths."
    + "</br>" + "1. Left" + "</br>" + "2. Right"
    document.getElementById("chat-area").innerHTML += text
@@ -425,6 +428,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
    "(1.)____ you--->__skeleton____(charge)" + "</br>" + "Or" + "</br>" + "(2.)____you / ____skeleton____(block)"
    document.getElementById("chat-area").innerHTML += text
    Traveller = false
+   duel = true
    inputTalk=""
    document.getElementById("input").value = null
  }
@@ -592,6 +596,23 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     document.getElementById("chat-area").innerHTML += text
     Entertainment = false
     Powerplay = true
+    inputTalk=""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "1" && part4 == true && duel == true){
+    text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--->___/ __skeleton____ (block)" + "</br>" + "nothing happens"
+    "(1.)____<--you__skeleton____(retreat)" + "</br>" + "Or" + "</br>" + "(2.)____you / ____skeleton____(block)"
+    document.getElementById("chat-area").innerHTML += text
+    duel = false
+    fence = true
+    inputTalk=""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "1" && part4 == true && fence == true){
+    text = "</br>" + "Skeleton: My turn" + "</br>" + "____<---you___<---__skeleton____ (charge)" + "</br>" + "he is coming right at you!"
+    "(1.)____ you ----><---skeleton____(charge!!!)" + "</br>" + "Or" + "</br>" + "(2.)____you / __<---skeleton____(block)"
+    document.getElementById("chat-area").innerHTML += text
+    fence = false
     inputTalk=""
     document.getElementById("input").value = null
   }

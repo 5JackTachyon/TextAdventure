@@ -69,7 +69,7 @@ var Entertainment = false
 var duel = false
 var fence = false
 
-var bone = false
+var pickle = false
 //general stats
 var heroHealth = 10
 var inventory = false
@@ -408,17 +408,17 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
    document.getElementById("input").value = null
  }
  if(hero == true && inputTalk == "Look Traveller's Repose" && part4 == true && Traveller == true){
-   text = "</br>" + "You look around and see a Scroll, a Bone, and a Ruby there are also still two paths" + "</br>" + "1. Left"
+   text = "</br>" + "You look around and see a Scroll, a Pickle, and a Ruby there are also still two paths" + "</br>" + "1. Left"
     + "</br>" + "2. Right"
     document.getElementById("chat-area").innerHTML += text
     inputTalk=""
     document.getElementById("input").value = null
  }
- if(hero == true && inputTalk == "Pickup Bone" && part4 == true && Traveller == true){
-   text = "</br>" + "You pick up a Bone, the time will come where this can be used, you'll know when" + "</br>" + "1. Left"
+ if(hero == true && inputTalk == "Pickup Pickle" && part4 == true && Traveller == true){
+   text = "</br>" + "You pick up a Pickle, the time will come where this can be used, you'll know when" + "</br>" + "1. Left"
     + "</br>" + "2. Right"
     document.getElementById("chat-area").innerHTML += text
-    bone = true
+    pickle = true
     inputTalk=""
     document.getElementById("input").value = null
  }

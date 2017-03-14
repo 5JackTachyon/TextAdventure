@@ -70,6 +70,9 @@ var duel = false
 var fence = false
 
 var pickle = false
+var torch = false
+var sword = false
+var chest = false
 //general stats
 var heroHealth = 10
 var inventory = false
@@ -399,7 +402,8 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
    inputTalk=""
    document.getElementById("input").value = null
  }
- if(hero == true && inputTalk == "1" && part4 == true && Traveller == false && Powerplay == false && Puzzle == false && Money == false && humanity == false && society == false && firstcave == false && school == false && Gamble == false && Entertainment == false && duel == false && fence == false){
+ if(hero == true && inputTalk == "1" && part4 == true && Traveller == false && Powerplay == false && Puzzle == false && Money == false && humanity == false && society == false && firstcave == false && school == false && Gamble == false && Entertainment == false && duel == false && fence == false &&
+ sword == false && pickle == false && chest == false && torch == false){
    text = "</br>" + "You look around the Traveller's Repose and see objects on the floor, you can now type Look ____ based on the name of the noun of interest to discover things, there are also to paths."
    + "</br>" + "1. Left" + "</br>" + "2. Right"
    document.getElementById("chat-area").innerHTML += text
@@ -434,9 +438,9 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
    text = "</br>" + "You pick up a Ruby, you are rich! Go to the market and buy more stuff!" + "</br>" + "1. Left"
     + "</br>" + "2. Right"
     document.getElementById("chat-area").innerHTML += text
-    inputTalk=""
     Inventory = true
     coins = coins + 15
+    inputTalk=""
     document.getElementById("input").value = null
  }
  if(hero == true && inputTalk == "1" && part4 == true && Traveller == true){
@@ -463,6 +467,35 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
    inputTalk=""
    document.getElementById("input").value = null
  }
+ if(hero == true && inputTalk == "Pickup Torch" && part4 == true && Traveller == true){
+   text = "</br>" + "You pick up a Torch, since it is so dark, this can be very useful" + "</br>" + "A."
+    + "</br>" + "B."
+    document.getElementById("chat-area").innerHTML += text
+    torch = true
+    inputTalk=""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "Pickup Sword" && part4 == true && Traveller == true){
+    text = "</br>" + "That stupid little wooden sword you had before is useless now, you have a metal sword! But you still have to press A or B"
+     document.getElementById("chat-area").innerHTML += text
+     sword = true
+     inputTalk=""
+     document.getElementById("input").value = null
+   }
+   if(hero == true && inputTalk == "Pickup Chest" && part4 == true && Traveller == true){
+     text = "</br>" + "You puck up a chest, but it is locked, and you do not have the key. But you still have to Attack or Block"
+      document.getElementById("chat-area").innerHTML += text
+      chest = true
+      inputTalk=""
+      document.getElementById("input").value = null
+    }
+   if(hero == true && inputTalk == "Pickup Ruby" && part4 == true && Traveller == true){
+     text = "</br>" + "You pick up a Ruby, you are rich! Go to the market and buy more stuff!" + "</br>" + "1. Left"
+      + "</br>" + "2. Right"
+      document.getElementById("chat-area").innerHTML += text
+      inputTalk=""
+      document.getElementById("input").value = null
+ }
  if(hero == true && inputTalk == "Look Sign" && part4 == true && Powerplay == true){
    text = "</br>" + "Sign: This room is called The Puzzle"
    document.getElementById("chat-area").innerHTML += text
@@ -475,6 +508,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
    inputTalk=""
    document.getElementById("input").value = null
  }
+
  if(hero == true && inputTalk == "2" && part4 == true && Powerplay == true){
    text = "</br>" + "Hero: I am the Lillypad" + "</br>" +
    "Man: Nice try, but you obviously don't understand how this works, you have to counter mine, like I say, 'I am the mouse' you say 'I am the cat that chases the mouse' and I say 'I am the dog that chases the cat' and you say 'I am the flea that plagues the dog' and so on."
@@ -636,6 +670,30 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     document.getElementById("chat-area").innerHTML += text
     Traveller = false
     duel = true
+    inputTalk=""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "A" && part4 == true && Traveller == true && pickle == true){
+    text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--->___/ __skeleton____ (block)" + "</br>" + "nothing happens"
+    "(A.)____<--you__skeleton____(retreat)" + "</br>" + "Or" + "</br>" + "(B.)____you / ____skeleton____(block)" + "</br>" +
+    "As you got to choose you position, the skeleton notices the pickle you carry with you, hids eyes(or what is left of them) are filled with fear" +
+    "</br>" + "Skeleton: You carry the pickle of cursebreaking, you are unlike any human I have ever battled, take my gold and prizes, then leave me alone!"
+    document.getElementById("chat-area").innerHTML += text
+    Traveller = false
+    part4 = false
+    part3 = true
+    inputTalk=""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "B" && part4 == true && Traveller == true && pickle == true){
+    text = "</br>" + "Skeleton: My turn" + "</br>" + "____you / ___ <--skeleton____ (block)" + "</br>" + "nothing happens"
+    "(A.)____<--you__skeleton____(retreat)" + "</br>" + "Or" + "</br>" + "(B.)____you / ____skeleton____(block)" + "</br>" +
+    "As you got to choose you position, the skeleton notices the pickle you carry with you, hids eyes(or what is left of them) are filled with fear" +
+    "</br>" + "Skeleton: You carry the pickle of cursebreaking, you are unlike any human I have ever battled, take my gold and prizes, then leave me alone!"
+    document.getElementById("chat-area").innerHTML += text
+    Traveller = false
+    part4 = false
+    part3 = true
     inputTalk=""
     document.getElementById("input").value = null
   }

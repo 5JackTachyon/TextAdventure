@@ -68,11 +68,16 @@ var Entertainment = false
 
 var duel = false
 var fence = false
+var feint = false
+var parry = false
+var strangerDanger = false
+var swordplay = false
 
 var pickle = false
 var torch = false
 var sword = false
 var chest = false
+var bone = false
 //general stats
 var heroHealth = 10
 var inventory = false
@@ -403,7 +408,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
    document.getElementById("input").value = null
  }
  if(hero == true && inputTalk == "1" && part4 == true && Traveller == false && Powerplay == false && Puzzle == false && Money == false && humanity == false && society == false && firstcave == false && school == false && Gamble == false && Entertainment == false && duel == false && fence == false &&
- sword == false && pickle == false && chest == false && torch == false){
+ sword == false && pickle == false && chest == false && torch == false && feint == false && parry == false && strangerDanger == false && bone == false && swordplay){
    text = "</br>" + "You look around the Traveller's Repose and see objects on the floor, you can now type Look ____ based on the name of the noun of interest to discover things, there are also to paths."
    + "</br>" + "1. Left" + "</br>" + "2. Right"
    document.getElementById("chat-area").innerHTML += text
@@ -483,7 +488,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
      document.getElementById("input").value = null
    }
    if(hero == true && inputTalk == "Pickup Chest" && part4 == true && Traveller == true){
-     text = "</br>" + "You puck up a chest, but it is locked, and you do not have the key. But you still have to Attack or Block"
+     text = "</br>" + "You pick up a chest, but it is locked, and you do not have the key. But you still have to Attack or Block"
       document.getElementById("chat-area").innerHTML += text
       chest = true
       inputTalk=""
@@ -664,16 +669,23 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     inputTalk=""
     document.getElementById("input").value = null
   }
-  if(hero == true && inputTalk == "A" && part4 == true && Traveller == true){
+  //A
+  if(hero == true && pickle == false && inputTalk == "A" && part4 == true && Traveller == true){
     text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--->___/ __skeleton____ (block)" + "</br>" + "nothing happens"
     "(A.)____<--you__skeleton____(retreat)" + "</br>" + "Or" + "</br>" + "(B.)____you / ____skeleton____(block)"
     document.getElementById("chat-area").innerHTML += text
+    if(pickle = true){
+      text = + "</br>" +
+      "As you got to choose you position, the skeleton notices the pickle you carry with you, hids eyes(or what is left of them) are filled with fear" +
+      "</br>" + "Skeleton: You carry the pickle of cursebreaking, you are unlike any human I have ever battled, take my gold and prizes, then leave me alone!"
+      document.getElementById("chat-area").innerHTML += text
+    }
     Traveller = false
     duel = true
     inputTalk=""
     document.getElementById("input").value = null
   }
-  if(hero == true && inputTalk == "A" && part4 == true && Traveller == true && pickle == true){
+  if(hero == true && pickle == true && inputTalk == "A" && part4 == true && Traveller == true){
     text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--->___/ __skeleton____ (block)" + "</br>" + "nothing happens"
     "(A.)____<--you__skeleton____(retreat)" + "</br>" + "Or" + "</br>" + "(B.)____you / ____skeleton____(block)" + "</br>" +
     "As you got to choose you position, the skeleton notices the pickle you carry with you, hids eyes(or what is left of them) are filled with fear" +
@@ -682,6 +694,16 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     Traveller = false
     part4 = false
     part3 = true
+    inputTalk=""
+    document.getElementById("input").value = null
+  }
+  //B
+  if(hero == true && inputTalk == "B" && part4 == true && Traveller == true && pickle == false){
+    text = "</br>" + "Skeleton: My turn" + "</br>" + "____you / ___ <--skeleton____ (attack)" + "</br>" + "nothing happens"
+    "(A.)____<--you__skeleton____(retreat)" + "</br>" + "Or" + "</br>" + "(B.)____you---> <--skeleton____(charge)"
+    document.getElementById("chat-area").innerHTML += text
+    Traveller = false
+    feint = true
     inputTalk=""
     document.getElementById("input").value = null
   }
@@ -696,13 +718,74 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     part3 = true
     inputTalk=""
     document.getElementById("input").value = null
-  }
+  }//AA
   if(hero == true && inputTalk == "A" && part4 == true && duel == true){
     text = "</br>" + "Skeleton: My turn" + "</br>" + "____<---you___<---__skeleton____ (charge)" + "</br>" + "he is coming right at you!" + "</br>" +
     "(A.)____ you ----><---skeleton____(charge!!!)" + "</br>" + "Or" + "</br>" + "(B.)____you / __<---skeleton____(block)"
     document.getElementById("chat-area").innerHTML += text
     duel = false
     fence = true
+    inputTalk=""
+    document.getElementById("input").value = null
+  }
+  //BA
+  if(hero == true && inputTalk == "A" && part4 == true && feint == true){
+    text = "</br>" + "Skeleton: My turn" + "</br>" + "____ <--you ___ <--skeleton____ (charge)" + "</br>" + "nothing happens"
+    "(A.)____you /__skeleton____(block)" + "</br>" + "Or" + "</br>" + "(B.)____you---><---skeleton____(charge!!!)"
+    document.getElementById("chat-area").innerHTML += text
+    feint = false
+    parry = true
+    inputTalk=""
+    document.getElementById("input").value = null
+  }
+  //AB
+  if(hero == true && inputTalk == "B" && part4 == true && duel == true){
+    text = "</br>" + "Skeleton: My turn" + "</br>" + "____you /___<---__skeleton____ (charge)" + "</br>" + "nothing happens," + "</br>" +
+    "Skeleton: I am weary of the chase, let's change things up" + "</br>" + "He rearranges his bones and cages our hero" + "</br>" +
+    "One day later...." + "</br>" + "You wake up, the cage is blown to  pieces, and a man appears in front of you, do you" + "</br>" +
+    "A. attack the stranger" + "</br>" + "Or" + "</br>" + "B. try to befriend the stranger"
+    document.getElementById("chat-area").innerHTML += text
+    duel = false
+    strangerDanger = true
+    inputTalk=""
+    document.getElementById("input").value = null
+  }
+  //BB
+  if(hero == true && inputTalk == "B" && part4 == true && feint == true){
+    text = "</br>" + "Skeleton: My turn" + "</br>" + "____ you---> ___ <--skeleton____ (charge)" + "</br>" + "you go head to head and collide"
+    "You get the skeleton's coins and a bone, but loose health, press 0 to continue"
+    document.getElementById("chat-area").innerHTML += text
+    feint = false
+    part4 = false
+    part3 = true
+    inventory = true
+    coins = coins + 5
+    heroHealth = heroHealth - 5
+    bone = true
+    inputTalk=""
+    document.getElementById("input").value = null
+  }
+  //AAA
+  if(hero == true && inputTalk == "A" && part4 == true && fence == true){
+    text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--><---__skeleton____ (charge)" + "</br>" + "you go head to head and collide"
+    "You get the skeleton's coins and a bone, but loose health, press 0 to continue"
+    document.getElementById("chat-area").innerHTML += text
+    fence = false
+    part4 = false
+    part3 = true
+    inventory = true
+    coins = coins + 5
+    heroHealth = heroHealth - 5
+    bone = true
+    inputTalk=""
+    document.getElementById("input").value = null
+  }//AAB
+  if(hero == true && inputTalk == "B" && part4 == true && fence == true){
+    text = "</br>" + "Skeleton: My turn" + "</br>" + "____you/___/__skeleton____ (block)" + "</br>" + "he is coming right at you!" + "</br>" +
+    "(A.)____ you ----> /skeleton____(charge!!!)" + "</br>" + "Or" + "</br>" + "(B.)____ <--you _/skeleton____(block)"
+    document.getElementById("chat-area").innerHTML += text
+    fence = false
+    swordplay = true
     inputTalk=""
     document.getElementById("input").value = null
   }

@@ -80,6 +80,8 @@ var darkness = false
 var darker = false
 var rock = false
 var rocky = false
+var cold = false
+var colder = false
 
 var pickle = false
 var torch = false
@@ -894,7 +896,7 @@ if(hero == true && inputTalk == "2" && part4 == true && cavern == true){
   inputTalk=""
   document.getElementById("input").value = null
 }
-//3
+//3X
 if(hero == true && inputTalk == "3" && part4 == true && cavern == true){
   text = "</br>" + "It is a dead end, press 1 or 2." + "</br>" +
   "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
@@ -962,14 +964,160 @@ if(hero == true && inputTalk == "1" && part4 == true && dark == true){
   inputTalk=""
   document.getElementById("input").value = null
 }
-//23 will be dead end
+//23X
+if(hero == true && inputTalk == "1" && part4 == true && dark == true){
+  text = "</br>" + "Dead end, try a different button." + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  dark = false
+  cavern = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//24
+if(hero == true && inputTalk == "4" && part4 == true && dark == true){
+  text = "</br>" + "Back to the previous room." + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  dark = false
+  cavern = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
 //111
 if(hero == true && inputTalk == "1" && part4 == true && rock == true){
-  text = "</br>" + "Insanity plagues you." + "</br>" +
+  text = "</br>" + "Keep on trudging." + "</br>" +
   "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
   document.getElementById("chat-area").innerHTML += text
   rock = false
   darkness = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//112X
+if(hero == true && inputTalk == "2" && part4 == true && rock == true){
+  text = "</br>" + "Insanity plagues you."
+  document.getElementById("chat-area").innerHTML += text
+  rock = false
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//113X
+if(hero == true && inputTalk == "3" && part4 == true && rock == true){
+  text = "</br>" + "Looks you found a secret passage, there is ten gold and a torch. Now try a different button." + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  rock = false
+  narrow = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//114
+if(hero == true && inputTalk == "4" && part4 == true && rock == true){
+  text = "</br>" + "Back to the previous room." + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  rock = false
+  narrow = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//121X
+if(hero == true && inputTalk == "1" && part4 == true && rocky == true){
+  text = "</br>" + "You found a special room, it says, to avoid traps, go back twice and go right. You go back and try a different button"
+  + "</br>" + "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  rocky = false
+  narrow = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//122X
+if(hero == true && inputTalk == "2" && part4 == true && rocky == true){
+  text = "</br>" + "You hit a trap and die"
+  document.getElementById("chat-area").innerHTML += text
+  rocky = false
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//123X
+if(hero == true && inputTalk == "3" && part4 == true && rocky == true){
+  text = "</br>" + "You hit a trap and die"
+  document.getElementById("chat-area").innerHTML += text
+  rocky = false
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//124
+if(hero == true && inputTalk == "4" && part4 == true && rocky == true){
+  text = "</br>" + "Back to the previous room." + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  rocky = false
+  narrow = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//131X
+if(hero == true && inputTalk == "1" && part4 == true && cold == true){
+  text = "</br>" + "You found a secret room, it has a picture on the wall that teaches you a new move, Shishkebab, you also find a Pickle, try another button." + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  cold = false
+  narrow = true
+  Shishkebab = true
+  Bone = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//132
+if(hero == true && inputTalk == "2" && part4 == true && cold == true){
+  text = "</br>" + "Whew, no traps here." + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  cold = false
+  colder = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//133X
+if(hero == true && inputTalk == "3" && part4 == true && cold == true){
+  text = "</br>" + "It's a dead end, try a different button." + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  cold = false
+  narrow = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//134
+if(hero == true && inputTalk == "4" && part4 == true && cold == true){
+  text = "</br>" + "Back to the previous room." + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  cold = false
+  narrow = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//211X
+if(hero == true && inputTalk == "1" && part4 == true && darker == true){
+  text = "</br>" + "Dead end. Try a different button." + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  darker = false
+  dark = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//212
+if(hero == true && inputTalk == "2" && part4 == true && darker == true){
+  text = "</br>" + "You find a room with twenty gold" + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  darker = false
+  dark = true
+  coins = coins + 20
   inputTalk=""
   document.getElementById("input").value = null
 }

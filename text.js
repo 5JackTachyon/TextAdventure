@@ -78,6 +78,12 @@ var torch = false
 var sword = false
 var chest = false
 var bone = false
+var key = false
+
+var Skyward = false
+var Shishkebab = false
+
+var once = false
 //general stats
 var heroHealth = 10
 var inventory = false
@@ -599,6 +605,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
      school = false
      part4 = false
      part3 = true
+     Skyward = true
      inputTalk=""
      document.getElementById("input").innerHTML += text
   }
@@ -660,7 +667,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     document.getElementById("input").value = null
   }
   if(hero == true && inputTalk == "2" && part4 == true && Entertainment == true){
-    text = "</br>" + "Hero: I am loyalty, I am what brings fans in the end because they feel that they owe me."
+    text = "</br>" + "Hero: I am loyalty, I am what brings fans in the end because they feel that they owe me." + "</br>"
     + "</br>" + "Man: I am betrayal, I break loyalty" + "</br>" + "1. Hero: I am punishment I keep loyalty in line" + "</br>" +
     "Man: Looks like we are at a draw, lets start over."
     document.getElementById("chat-area").innerHTML += text
@@ -671,7 +678,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
   }
   //A
   if(hero == true && pickle == false && inputTalk == "A" && part4 == true && Traveller == true){
-    text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--->___/ __skeleton____ (block)" + "</br>" + "nothing happens"
+    text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--->___/ __skeleton____ (block)" + "</br>" + "nothing happens" + "</br>" +
     "(A.)____<--you__skeleton____(retreat)" + "</br>" + "Or" + "</br>" + "(B.)____you / ____skeleton____(block)"
     document.getElementById("chat-area").innerHTML += text
   //  if(pickle = true){
@@ -686,7 +693,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     document.getElementById("input").value = null
   }
   if(hero == true && pickle == true && inputTalk == "A" && part4 == true && Traveller == true){
-    text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--->___/ __skeleton____ (block)" + "</br>" + "nothing happens"
+    text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--->___/ __skeleton____ (block)" + "</br>" + "nothing happens" + "</br>" +
     "(A.)____<--you__skeleton____(retreat)" + "</br>" + "Or" + "</br>" + "(B.)____you / ____skeleton____(block)" + "</br>" +
     "As you got to choose you position, the skeleton notices the pickle you carry with you, hids eyes(or what is left of them) are filled with fear" +
     "</br>" + "Skeleton: You carry the pickle of cursebreaking, you are unlike any human I have ever battled, take my gold and prizes, then leave me alone!"
@@ -699,7 +706,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
   }
   //B
   if(hero == true && inputTalk == "B" && part4 == true && Traveller == true && pickle == false){
-    text = "</br>" + "Skeleton: My turn" + "</br>" + "____you / ___ <--skeleton____ (attack)" + "</br>" + "nothing happens"
+    text = "</br>" + "Skeleton: My turn" + "</br>" + "____you / ___ <--skeleton____ (attack)" + "</br>" + "nothing happens" + "</br>" +
     "(A.)____<--you__skeleton____(retreat)" + "</br>" + "Or" + "</br>" + "(B.)____you---> <--skeleton____(charge)"
     document.getElementById("chat-area").innerHTML += text
     Traveller = false
@@ -708,7 +715,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     document.getElementById("input").value = null
   }
   if(hero == true && inputTalk == "B" && part4 == true && Traveller == true && pickle == true){
-    text = "</br>" + "Skeleton: My turn" + "</br>" + "____you / ___ <--skeleton____ (block)" + "</br>" + "nothing happens"
+    text = "</br>" + "Skeleton: My turn" + "</br>" + "____you / ___ <--skeleton____ (block)" + "</br>" + "nothing happens" + "</br>" +
     "(A.)____<--you__skeleton____(retreat)" + "</br>" + "Or" + "</br>" + "(B.)____you / ____skeleton____(block)" + "</br>" +
     "As you got to choose you position, the skeleton notices the pickle you carry with you, hids eyes(or what is left of them) are filled with fear" +
     "</br>" + "Skeleton: You carry the pickle of cursebreaking, you are unlike any human I have ever battled, take my gold and prizes, then leave me alone!"
@@ -730,7 +737,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
   }
   //BA
   if(hero == true && inputTalk == "A" && part4 == true && feint == true){
-    text = "</br>" + "Skeleton: My turn" + "</br>" + "____ <--you ___ <--skeleton____ (charge)" + "</br>" + "nothing happens"
+    text = "</br>" + "Skeleton: My turn" + "</br>" + "____ <--you ___ <--skeleton____ (charge)" + "</br>" + "nothing happens" + "</br>" +
     "(A.)____you /__skeleton____(block)" + "</br>" + "Or" + "</br>" + "(B.)____you---><---skeleton____(charge!!!)"
     document.getElementById("chat-area").innerHTML += text
     feint = false
@@ -738,7 +745,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     inputTalk=""
     document.getElementById("input").value = null
   }
-  //AB
+  //ABX
   if(hero == true && inputTalk == "B" && part4 == true && duel == true){
     text = "</br>" + "Skeleton: My turn" + "</br>" + "____you /___<---__skeleton____ (charge)" + "</br>" + "nothing happens," + "</br>" +
     "Skeleton: I am weary of the chase, let's change things up" + "</br>" + "He rearranges his bones and cages our hero" + "</br>" +
@@ -750,9 +757,9 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     inputTalk=""
     document.getElementById("input").value = null
   }
-  //BB
+  //BBX
   if(hero == true && inputTalk == "B" && part4 == true && feint == true){
-    text = "</br>" + "Skeleton: My turn" + "</br>" + "____ you---> ___ <--skeleton____ (charge)" + "</br>" + "you go head to head and collide"
+    text = "</br>" + "Skeleton: My turn" + "</br>" + "____ you---> ___ <--skeleton____ (charge)" + "</br>" + "you go head to head and collide" + "</br>" +
     "You get the skeleton's coins and a bone, but loose health, press 0 to continue"
     document.getElementById("chat-area").innerHTML += text
     feint = false
@@ -765,7 +772,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     inputTalk=""
     document.getElementById("input").value = null
   }
-  //AAA
+  //AAAX
   if(hero == true && inputTalk == "A" && part4 == true && fence == true){
     text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--><---__skeleton____ (charge)" + "</br>" + "you go head to head and collide" + "</br>" +
     "You get the skeleton's coins and a bone, but loose health, press 0 to continue"
@@ -781,7 +788,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     document.getElementById("input").value = null
   }//AAB
   if(hero == true && inputTalk == "B" && part4 == true && fence == true){
-    text = "</br>" + "Skeleton: My turn" + "</br>" + "____you/___/__skeleton____ (block)" + "</br>" + "he is coming right at you!" + "</br>" +
+    text = "</br>" + "Skeleton: My turn" + "</br>" + "____you/___/__skeleton____ (block)" + "</br>" + "he defends!" + "</br>" +
     "(A.)____ you ----> /skeleton____(charge!!!)" + "</br>" + "Or" + "</br>" + "(B.)____ <--you _/skeleton____(block)"
     document.getElementById("chat-area").innerHTML += text
     fence = false
@@ -789,18 +796,69 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     inputTalk=""
     document.getElementById("input").value = null
   }
-}
 //BAA
 if(hero == true && inputTalk == "A" && part4 == true && parry == true){
   text = "</br>" + "Skeleton: My turn" + "</br>" + "____ you /___ <--skeleton____ (charge)" + "</br>" + "nothing happens and out of anger and impatience.." +
-  "</br>" + "Skeleton: " 
+  "</br>" + "Skeleton: Remodus tercerius, yoyoama, cowtera." + "</br>" + "The incatation prevents you from blocking." +  "</br>" +
+  "(A.)____ you ----> <---skeleton____(charge!!!)" + "</br>" + "Or" + "</br>" + "(B.)____ <--you _<---skeleton____(run)"
   document.getElementById("chat-area").innerHTML += text
-  feint = false
-  parry = true
+  parry = false
+  clash = true
   inputTalk=""
   document.getElementById("input").value = null
 }
-
+//AABA
+if(hero == true && inputTalk == "A" && part4 == true && swordplay == true){
+  text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--->_____skeleton____ (nothing)" + "</br>" + "Just as he puts down his shield you shishkebab him and he id defeated"
+  + "</br>" +"You money and a key, press 0 to continue"
+  document.getElementById("chat-area").innerHTML += text
+  swordplay = false
+  part4 = false
+  part3 = true
+  key = true
+  coins = coins + 5
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//AABB
+if(hero == true && inputTalk == "B" && part4 == true && swordplay == true){
+  text = "</br>" + "Skeleton: My turn" + "</br>" + "____<--you___!!!!!__skeleton____ (shake)" + "</br>" + "Your battling has caused the cave to collapse, you are trapped and you die"
+  document.getElementById("chat-area").innerHTML += text
+  swordplay = false
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//BAAA
+if(hero == true && inputTalk == "A" && part4 == true && clash == true){
+  text = "</br>" + "Skeleton: My turn" + "</br>" + "____ you---> skeleton____ (charge)" + "</br>" + "You crush your enemy" +
+  "</br>" + "Hero: You were a fool  to take away my ability to block, that only makes me want to attack more!" + "</br>" + "He gives up and gives you coins and a key, press 0 to continue"
+  document.getElementById("chat-area").innerHTML += text
+  clash = false
+  part4 = false
+  part3 = true
+  key = true
+  coins = coins + 10
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//BAAB
+if(hero == true && inputTalk == "B" && part4 == true && clash == true){
+  text = "</br>" + "Skeleton: My turn" + "</br>" + "____ <---you___ <--skeleton____ (charge)" + "</br>" + "You did about the stupidest thing to do, running without a block, and the skeleton throws his sword into your back, and you die"
+  document.getElementById("chat-area").innerHTML += text
+  clash = false
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+if(hero == true && key == true && chest == true && once == false){
+  text = "</br>" + "Your key opens the chest and you receive 20 gold and a new move, Shishkebab"
+  document.getElementById("chat-area").innerHTML += text
+  coins = coins + 20
+  Shishkebab = true
+  once = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+}
 
 
 

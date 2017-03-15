@@ -408,7 +408,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
    document.getElementById("input").value = null
  }
  if(hero == true && inputTalk == "1" && part4 == true && Traveller == false && Powerplay == false && Puzzle == false && Money == false && humanity == false && society == false && firstcave == false && school == false && Gamble == false && Entertainment == false && duel == false && fence == false &&
- sword == false && pickle == false && chest == false && torch == false && feint == false && parry == false && strangerDanger == false && bone == false && swordplay){
+ sword == false && feint == false && parry == false && strangerDanger == false && swordplay == false){
    text = "</br>" + "You look around the Traveller's Repose and see objects on the floor, you can now type Look ____ based on the name of the noun of interest to discover things, there are also to paths."
    + "</br>" + "1. Left" + "</br>" + "2. Right"
    document.getElementById("chat-area").innerHTML += text
@@ -674,12 +674,12 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--->___/ __skeleton____ (block)" + "</br>" + "nothing happens"
     "(A.)____<--you__skeleton____(retreat)" + "</br>" + "Or" + "</br>" + "(B.)____you / ____skeleton____(block)"
     document.getElementById("chat-area").innerHTML += text
-    if(pickle = true){
-      text = + "</br>" +
-      "As you got to choose you position, the skeleton notices the pickle you carry with you, hids eyes(or what is left of them) are filled with fear" +
-      "</br>" + "Skeleton: You carry the pickle of cursebreaking, you are unlike any human I have ever battled, take my gold and prizes, then leave me alone!"
-      document.getElementById("chat-area").innerHTML += text
-    }
+  //  if(pickle = true){
+    //  text = + "</br>" +
+      //"As you got to choose you position, the skeleton notices the pickle you carry with you, hids eyes(or what is left of them) are filled with fear" +
+      //"</br>" + "Skeleton: You carry the pickle of cursebreaking, you are unlike any human I have ever battled, take my gold and prizes, then leave me alone!"
+      //document.getElementById("chat-area").innerHTML += text
+    //}
     Traveller = false
     duel = true
     inputTalk=""
@@ -767,7 +767,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
   }
   //AAA
   if(hero == true && inputTalk == "A" && part4 == true && fence == true){
-    text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--><---__skeleton____ (charge)" + "</br>" + "you go head to head and collide"
+    text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--><---__skeleton____ (charge)" + "</br>" + "you go head to head and collide" + "</br>" +
     "You get the skeleton's coins and a bone, but loose health, press 0 to continue"
     document.getElementById("chat-area").innerHTML += text
     fence = false
@@ -790,7 +790,16 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     document.getElementById("input").value = null
   }
 }
-
+//BAA
+if(hero == true && inputTalk == "A" && part4 == true && parry == true){
+  text = "</br>" + "Skeleton: My turn" + "</br>" + "____ you /___ <--skeleton____ (charge)" + "</br>" + "nothing happens and out of anger and impatience.." +
+  "</br>" + "Skeleton: " 
+  document.getElementById("chat-area").innerHTML += text
+  feint = false
+  parry = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
 
 
 

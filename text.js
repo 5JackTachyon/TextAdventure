@@ -73,6 +73,14 @@ var parry = false
 var strangerDanger = false
 var swordplay = false
 
+var cavern = false
+var narrow = false
+var dark = false
+var darkness = false
+var darker = false
+var rock = false
+var rocky = false
+
 var pickle = false
 var torch = false
 var sword = false
@@ -858,8 +866,115 @@ if(hero == true && key == true && chest == true && once == false){
   inputTalk=""
   document.getElementById("input").value = null
 }
+if(hero == true && inputTalk == "2" && part4 == true && firstcave == false){
+  text = "</br>" + "You enter a long dark dank cavern you can't see much but you can see the paths" + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right"
+  document.getElementById("chat-area").innerHTML += text
+  cavern = true
+  inputTalk=""
+  document.getElementById("input").value = null
 }
-
+//1
+if(hero == true && inputTalk == "1" && part4 == true && cavern == true){
+  text = "</br>" + "Pretty much the same as last time." + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  cavern = false
+  narrow = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//2
+if(hero == true && inputTalk == "2" && part4 == true && cavern == true){
+  text = "</br>" + "More darkness." + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  cavern = false
+  dark = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//3
+if(hero == true && inputTalk == "3" && part4 == true && cavern == true){
+  text = "</br>" + "It is a dead end, press 1 or 2." + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//11
+if(hero == true && inputTalk == "1" && part4 == true && narrow == true){
+  text = "</br>" + "More of the same." + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  narrow = false
+  rock = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//12
+if(hero == true && inputTalk == "2" && part4 == true && narrow == true){
+  text = "</br>" + "More lack of light." + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  narrow = false
+  rocky = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//13
+if(hero == true && inputTalk == "3" && part4 == true && narrow == true){
+  text = "</br>" + "Do you expect anything to change?" + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  narrow = false
+  cold = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//14
+if(hero == true && inputTalk == "4" && part4 == true && narrow == true){
+  text = "</br>" + "Back to the previous room." + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  narrow = false
+  cavern = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//21
+if(hero == true && inputTalk == "1" && part4 == true && dark == true){
+  text = "</br>" + "It." + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  dark = false
+  darker = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//22
+if(hero == true && inputTalk == "1" && part4 == true && dark == true){
+  text = "</br>" + "It." + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  dark = false
+  darker = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//23 will be dead end
+//111
+if(hero == true && inputTalk == "1" && part4 == true && rock == true){
+  text = "</br>" + "Insanity plagues you." + "</br>" +
+  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  document.getElementById("chat-area").innerHTML += text
+  rock = false
+  darkness = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+}
+//lRSS
 
 
 

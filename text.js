@@ -876,7 +876,8 @@ if(hero == true && key == true && chest == true && once == false){
   inputTalk=""
   document.getElementById("input").value = null
 }
-if(hero == true && inputTalk == "2" && part4 == true && firstcave == false){
+if(hero == true && inputTalk == "2" && part4 == true && firstcave == false && cavern == false && narrow == false && dark == false && darkness == false &&  darker == false && rock == false && rocky == false && cold == false && colder == false && darkers == false && coldest == false && coldead == false
+&& freeze == false && freezer == false && freezest == false){
   text = "</br>" + "You enter a long dark dank cavern you can't see much but you can see the paths" + "</br>" +
   "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right"
   document.getElementById("chat-area").innerHTML += text

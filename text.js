@@ -44,6 +44,7 @@ var part2 = false
 var part3 = false
 var part4 = false
 var part5 = false
+var part6 = false
 //fight1 variables
 var fight1Turn1 = true
 var fight1Turn2 = false
@@ -110,6 +111,9 @@ var inventory = false
 var coins = 0
 var inputTalk
 var question
+
+var weapons = false
+var potions = false
 
 function run1(){
   inputTalk = document.getElementById("input").value;
@@ -183,10 +187,36 @@ function run1(){
     inputTalk=""
     document.getElementById("input").value = null
   }
-  if(hero == true && inputTalk == "1" && part3 == true && inventory == false){
-    text = "</br>" + "There are a variety of shops and stores, one sells weapons, another sells potions, another will give you cold hard cash for your items, but you have neither cash or items, so I suggest you just go back" +
+  if(hero == true && inputTalk == "1" && part3 == true && coins == 0){
+    text = "</br>" + "There are a variety of shops and stores, one sells weapons, another sells potions, but you have no money, so I suggest you just go back" +
     "</br>" + "0. Go back"
     document.getElementById("chat-area").innerHTML += text
+    inputTalk= ""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "1" && part3 == true && coins > 0){
+    text = "</br>" + "There are a variety of shops and stores, one sells weapons, another sells potions, another will give you cold hard cash for your items, would you like to.." +
+    "</br>" +"1. Buy weapons"+"</br>"+"2. Buy potions"+"</br>" + "3. Go back"
+    document.getElementById("chat-area").innerHTML += text
+    part3 = false
+    part6 = true
+    inputTalk= ""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "1" && part6 == true && coins > 0){
+    text = "</br>" + "For sale there is.." + "</br>" + "1. (10 coins) a metal sword(better than the stupid little wooden sword of yours)" +
+    "</br>" +"2. (10 coins) a new fighting move, Shishkebab"+"</br>"+"3. (15 coins) A bow and arrow"+"</br>" + "4. Go back"
+    document.getElementById("chat-area").innerHTML += text
+    weapons = true
+    inputTalk= ""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "2" && part6 == true && coins > 0){
+    text = "</br>" + "For sale there is.." + "</br>" + "1. (5 coins) a health potion(restores 5 health)" +
+    "</br>" +"2. (5 coins) strength potion(increases your attack temporarily)"+"</br>"+
+    "3. (10 coins) morph potion(transforms your enemy into a passive little animal)"+"</br>" + "4. Go back"
+    document.getElementById("chat-area").innerHTML += text
+    potions = true
     inputTalk= ""
     document.getElementById("input").value = null
   }
@@ -1035,13 +1065,13 @@ if(hero == true && inputTalk == "2" && part4 == true && firstcave == false && ca
 if(hero == true && inputTalk == "1" && part4 == true && cavern == true){
   text = "</br>" + "Pretty much the same as last time." + "</br>" +
   "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
-  document.getElementById("chat-area").innerHTML += text
   if(torch == true){
      text += "</br>" + "All paths look fine. Listen to your scroll if you have it!"
     }
     else{
       text += ""
     }
+  document.getElementById("chat-area").innerHTML += text
   cavern = false
   narrow = true
   inputTalk=""
@@ -1051,13 +1081,13 @@ if(hero == true && inputTalk == "1" && part4 == true && cavern == true){
 if(hero == true && inputTalk == "2" && part4 == true && cavern == true){
   text = "</br>" + "More darkness." + "</br>" +
   "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
-  document.getElementById("chat-area").innerHTML += text
   if(torch == true){
      text += "</br>" + "Again, the right is a dead end, the other paths look fine. If you have your scroll, listen to it!"
     }
     else{
       text += ""
     }
+  document.getElementById("chat-area").innerHTML += text
   cavern = false
   dark = true
   inputTalk=""
@@ -1097,13 +1127,13 @@ if(hero == true && inputTalk == "1" && part4 == true && narrow == true){
 if(hero == true && inputTalk == "2" && part4 == true && narrow == true){
   text = "</br>" + "More lack of light." + "</br>" +
   "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
-  document.getElementById("chat-area").innerHTML += text
   if(torch == true){
      text += "</br>" + "The left path doesn't look like it leads anywhere, but there is writing on the wall that might mean something, the straight path looks omnious and so does the right path, pressing 4 to go back is always an option."
     }
     else{
       text += ""
     }
+  document.getElementById("chat-area").innerHTML += text
   narrow = false
   rocky = true
   inputTalk=""

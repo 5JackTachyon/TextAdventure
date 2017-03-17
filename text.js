@@ -68,6 +68,7 @@ var Entertainment = false
 
 var duel = false
 var fence = false
+var clash = false
 var feint = false
 var parry = false
 var strangerDanger = false
@@ -432,7 +433,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
  }
  if(hero == true && inputTalk == "1" && part4 == true && Traveller == false && Powerplay == false && Puzzle == false && Money == false && humanity == false && society == false && firstcave == false && school == false && Gamble == false && Entertainment == false && duel == false && fence == false &&
  sword == false && feint == false && parry == false && strangerDanger == false && swordplay == false && cavern == false && narrow == false && dark == false && darkness == false && darker == false && rock == false && rocky == false && cold == false && colder == false && darkers == false && coldest == false && coldead == false
-  && freeze == false && freezer == false && freezest == false){
+  && freeze == false && freezer == false && freezest == false && clash == false){
    text = "</br>" + "You look around the Traveller's Repose and see objects on the floor, you can now type Look ____ based on the name of the noun of interest to discover things, there are also to paths."
    + "</br>" + "1. Left" + "</br>" + "2. Right"
    document.getElementById("chat-area").innerHTML += text
@@ -584,7 +585,7 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     part4 = false
     part3 = true
     imputTalk=""
-    document.getElementsById("input").value = null
+    document.getElementById("input").value = null
   }
   if(hero == true && inputTalk == "2" && part4 == true && humanity == true){
     text= "</br>" + "Hero: I am the child" + "</br>" + "Man: I am the teacher, who molds and shapes the child's mind" + "</br>"
@@ -698,24 +699,38 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
   if(hero == true && pickle == false && inputTalk == "A" && part4 == true && Traveller == true){
     text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--->___/ __skeleton____ (block)" + "</br>" + "nothing happens" + "</br>" +
     "(A.)____<--you__skeleton____(retreat)" + "</br>" + "Or" + "</br>" + "(B.)____you / ____skeleton____(block)"
+  if(pickle == true){
+     text += "</br>" +
+      "As you got to choose you position, the skeleton notices the pickle you carry with you, hids eyes(or what is left of them) are filled with fear" +
+      "</br>" + "Skeleton: You carry the pickle of cursebreaking, you are unlike any human I have ever battled, take my gold and prizes, then leave me alone! (Press 0 to escape)"
+      document.getElementById("chat-area").innerHTML += text
+      Fallen = true
+      coins = coins + 5
+      Traveller = false
+      part4 = false
+      part3 = true
+      inputTalk=""
+      document.getElementById("input").value = null
+    }
+    else{
+      text += ""
+
     document.getElementById("chat-area").innerHTML += text
-  //  if(pickle = true){
-    //  text = + "</br>" +
-      //"As you got to choose you position, the skeleton notices the pickle you carry with you, hids eyes(or what is left of them) are filled with fear" +
-      //"</br>" + "Skeleton: You carry the pickle of cursebreaking, you are unlike any human I have ever battled, take my gold and prizes, then leave me alone!"
-      //document.getElementById("chat-area").innerHTML += text
-    //}
     Traveller = false
     duel = true
     inputTalk=""
     document.getElementById("input").value = null
   }
+  }
+
   if(hero == true && pickle == true && inputTalk == "A" && part4 == true && Traveller == true){
     text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--->___/ __skeleton____ (block)" + "</br>" + "nothing happens" + "</br>" +
     "(A.)____<--you__skeleton____(retreat)" + "</br>" + "Or" + "</br>" + "(B.)____you / ____skeleton____(block)" + "</br>" +
     "As you got to choose you position, the skeleton notices the pickle you carry with you, hids eyes(or what is left of them) are filled with fear" +
-    "</br>" + "Skeleton: You carry the pickle of cursebreaking, you are unlike any human I have ever battled, take my gold and prizes, then leave me alone!"
+    "</br>" + "Skeleton: You carry the pickle of cursebreaking, you are unlike any human I have ever battled, take my gold and prizes, then leave me alone!(press 0 to continue)"
     document.getElementById("chat-area").innerHTML += text
+    Fallen = true
+    coins = coins + 5
     Traveller = false
     part4 = false
     part3 = true
@@ -726,9 +741,44 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
   if(hero == true && inputTalk == "B" && part4 == true && Traveller == true && pickle == false){
     text = "</br>" + "Skeleton: My turn" + "</br>" + "____you / ___ <--skeleton____ (attack)" + "</br>" + "nothing happens" + "</br>" +
     "(A.)____<--you__skeleton____(retreat)" + "</br>" + "Or" + "</br>" + "(B.)____you---> <--skeleton____(charge)"
+    if(pickle == true){
+       text += "</br>" +
+        "As you got to choose you position, the skeleton notices the pickle you carry with you, hids eyes(or what is left of them) are filled with fear" +
+        "</br>" + "Skeleton: You carry the pickle of cursebreaking, you are unlike any human I have ever battled, take my gold and prizes, then leave me alone!(press 0 to continue)"
+        document.getElementById("chat-area").innerHTML += text
+        Fallen = true
+        coins = coins + 5
+        Traveller = false
+        part4 = false
+        part3 = true
+        inputTalk=""
+        document.getElementById("input").value = null
+      }
+      else{
+        text += ""
+
     document.getElementById("chat-area").innerHTML += text
     Traveller = false
     feint = true
+    inputTalk=""
+    document.getElementById("input").value = null
+  }
+  }
+  if(hero == true && inputTalk == "C" && part4 == true && feint == true){
+    text = "</br>" + "Press 0 to continue"
+    document.getElementById("chat-area").innerHTML += text
+    feint = false
+    part4 = false
+    part3 = true
+    inputTalk=""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "C" && part4 == true && duel == true){
+    text = "</br>" + "Press 0 to continue"
+    document.getElementById("chat-area").innerHTML += text
+    duel = false
+    part4 = false
+    part3 = true
     inputTalk=""
     document.getElementById("input").value = null
   }
@@ -736,8 +786,10 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     text = "</br>" + "Skeleton: My turn" + "</br>" + "____you / ___ <--skeleton____ (block)" + "</br>" + "nothing happens" + "</br>" +
     "(A.)____<--you__skeleton____(retreat)" + "</br>" + "Or" + "</br>" + "(B.)____you / ____skeleton____(block)" + "</br>" +
     "As you got to choose you position, the skeleton notices the pickle you carry with you, hids eyes(or what is left of them) are filled with fear" +
-    "</br>" + "Skeleton: You carry the pickle of cursebreaking, you are unlike any human I have ever battled, take my gold and prizes, then leave me alone!"
+    "</br>" + "Skeleton: You carry the pickle of cursebreaking, you are unlike any human I have ever battled, take my gold and prizes, then leave me alone!(press 0 to continue)"
     document.getElementById("chat-area").innerHTML += text
+    Fallen = true
+    coins = coins + 5
     Traveller = false
     part4 = false
     part3 = true
@@ -825,6 +877,14 @@ if(hero == true && inputTalk == "A" && part4 == true && parry == true){
   inputTalk=""
   document.getElementById("input").value = null
 }
+//BABX
+if(hero == true && inputTalk == "B" && part4 == true && parry == true){
+  text = "</br>" + "Skeleton: My turn" + "</br>" + "____ you ---> <--skeleton____ (charge)"  + "</br>" + "how reckless, you die."
+  document.getElementById("chat-area").innerHTML += text
+  parry = false
+  inputTalk=""
+  document.getElementById("input").value = null
+}
 //AABA
 if(hero == true && inputTalk == "A" && part4 == true && swordplay == true){
   text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--->_____skeleton____ (nothing)" + "</br>" + "Just as he puts down his shield you shishkebab him and he id defeated"
@@ -880,6 +940,12 @@ if(hero == true && inputTalk == "2" && part4 == true && firstcave == false && ca
 && freeze == false && freezer == false && freezest == false){
   text = "</br>" + "You enter a long dark dank cavern you can't see much but you can see the paths" + "</br>" +
   "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right"
+  if(torch == true){
+     text += "</br>" + "You see that to the right there is a dead end, the other two paths look fine."
+    }
+    else{
+      text += ""
+    }
   document.getElementById("chat-area").innerHTML += text
   cavern = true
   inputTalk=""
@@ -890,6 +956,12 @@ if(hero == true && inputTalk == "1" && part4 == true && cavern == true){
   text = "</br>" + "Pretty much the same as last time." + "</br>" +
   "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
   document.getElementById("chat-area").innerHTML += text
+  if(torch == true){
+     text += "</br>" + "All paths look fine."
+    }
+    else{
+      text += ""
+    }
   cavern = false
   narrow = true
   inputTalk=""
@@ -900,6 +972,12 @@ if(hero == true && inputTalk == "2" && part4 == true && cavern == true){
   text = "</br>" + "More darkness." + "</br>" +
   "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
   document.getElementById("chat-area").innerHTML += text
+  if(torch == true){
+     text += "</br>" + "Again, the right is a dead end, the other paths look fine."
+    }
+    else{
+      text += ""
+    }
   cavern = false
   dark = true
   inputTalk=""
@@ -909,6 +987,12 @@ if(hero == true && inputTalk == "2" && part4 == true && cavern == true){
 if(hero == true && inputTalk == "3" && part4 == true && cavern == true){
   text = "</br>" + "It is a dead end, press 1 or 2." + "</br>" +
   "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  if(torch == true){
+     text += "</br>" + "Press 4 to go back, it works."
+    }
+    else{
+      text += ""
+    }
   document.getElementById("chat-area").innerHTML += text
   inputTalk=""
   document.getElementById("input").value = null
@@ -917,6 +1001,12 @@ if(hero == true && inputTalk == "3" && part4 == true && cavern == true){
 if(hero == true && inputTalk == "1" && part4 == true && narrow == true){
   text = "</br>" + "More of the same." + "</br>" +
   "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  if(torch == true){
+     text += "</br>" + "The left path look fine, the straight path looks long, windy and dangerous, the right path is shimmering, like there is something of value in there."
+    }
+    else{
+      text += ""
+    }
   document.getElementById("chat-area").innerHTML += text
   narrow = false
   rock = true
@@ -928,6 +1018,12 @@ if(hero == true && inputTalk == "2" && part4 == true && narrow == true){
   text = "</br>" + "More lack of light." + "</br>" +
   "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
   document.getElementById("chat-area").innerHTML += text
+  if(torch == true){
+     text += "</br>" + "The left path doesn't look like it leads anywhere, but there is writing on the wall that might mean something, the straight path looks omnious and so does the right path, pressing 4 to go back is always an option."
+    }
+    else{
+      text += ""
+    }
   narrow = false
   rocky = true
   inputTalk=""
@@ -937,6 +1033,12 @@ if(hero == true && inputTalk == "2" && part4 == true && narrow == true){
 if(hero == true && inputTalk == "3" && part4 == true && narrow == true){
   text = "</br>" + "Do you expect anything to change?" + "</br>" +
   "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  if(torch == true){
+     text += "</br>" + "The left path is a dead end, but it is like a room, with objects in it, looks like a horder might have lived in there, the straight path looks fine, and the right path looks like it doesn't lead anywhere."
+    }
+    else{
+      text += ""
+    }
   document.getElementById("chat-area").innerHTML += text
   narrow = false
   cold = true
@@ -996,7 +1098,7 @@ if(hero == true && inputTalk == "4" && part4 == true && dark == true){
 //111
 if(hero == true && inputTalk == "1" && part4 == true && rock == true){
   text = "</br>" + "Keep on trudging." + "</br>" +
-  "1. Left" + "</br>" + "2. Straight" + "</br>" +  "3. Right" + "</br>" + "4. Back"
+  "1. Left"
   document.getElementById("chat-area").innerHTML += text
   rock = false
   darkness = true
@@ -1179,6 +1281,26 @@ if(hero == true && inputTalk == "4" && part4 == true && darker == true){
   inputTalk=""
   document.getElementById("input").value = null
 }
+//1111
+if(hero == true && inputTalk == "1" && part4 == true && rock == true){
+  text = "</br>" + "Keep, keep on trudging." + "</br>" +
+  "1. Left"
+  document.getElementById("chat-area").innerHTML += text
+  rock = false
+  darkness = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//11111 rewind
+if(hero == true && inputTalk == "1" && part4 == true && darkness == true){
+  text = "</br>" + "Keep, keep, keep on trudging." + "</br>" +
+  "1. Left"
+  document.getElementById("chat-area").innerHTML += text
+  darkness= false
+  rock = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
 //1321X
 if(hero == true && inputTalk == "1" && part4 == true && colder == true){
   text = "</br>" + "Nothing here, the way out is right, go back and go right." + "</br>" +
@@ -1274,31 +1396,31 @@ if(hero == true && inputTalk == "4" && part4 == true && coldead == true){
   document.getElementById("input").value = null
 }
 //13223143
-if(hero == true && inputTalk == "3" && part4 == true && freezer == true){
+if(hero == true && inputTalk == "3" && part4 == true && freeze == true){
   text = "</br>" + "Close, but no cigar, try another button." + "</br>" +
   "1. Left" + "</br>" +  "3. Right" + "</br>"
   document.getElementById("chat-area").innerHTML += text
-  freezer = false
-  freeze = true
+  freeze = false
+  coldead = true
   inputTalk=""
   document.getElementById("input").value = null
 }
 //13223141
-if(hero == true && inputTalk == "1" && part4 == true && freezer == true){
+if(hero == true && inputTalk == "1" && part4 == true && freeze == true){
   text = "</br>" + "Exit to your right." + "</br>" +
   "1. Left" + "</br>" +  "3. Right" + "</br>"
   document.getElementById("chat-area").innerHTML += text
-  freezer = false
-  freezest = true
+  freeze = false
+  freezer = true
   inputTalk=""
   document.getElementById("input").value = null
 }
 //132231411
-if(hero == true && inputTalk == "1" && part4 == true && freezest == true){
+if(hero == true && inputTalk == "1" && part4 == true && freezer == true){
   text = "</br>" + "You  have escaped! You get 30 gold, a Sword, and a new fighting move, The Fallen. Press 0 to continue" + "</br>" +
   "1. Left" + "</br>" +  "3. Right" + "</br>"
   document.getElementById("chat-area").innerHTML += text
-  freezest = false
+  freezer = false
   part4 = false
   part3 = true
   Fallen = true
@@ -1308,10 +1430,10 @@ if(hero == true && inputTalk == "1" && part4 == true && freezest == true){
   document.getElementById("input").value = null
 }
 //132231413
-if(hero == true && inputTalk == "3" && part4 == true && freezest == true){
+if(hero == true && inputTalk == "3" && part4 == true && freezer == true){
   text = "</br>" + "You escaped, press 2 to continue"
   document.getElementById("chat-area").innerHTML += text
-  freezest = false
+  freezer = false
   Traveller = true
   inputTalk=""
   document.getElementById("input").value = null

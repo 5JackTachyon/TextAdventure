@@ -141,6 +141,71 @@ function run1(){
     document.getElementById("chat-area").innerHTML += text
     hero = false
     part1 = true
+    sly = false
+    part2 = false
+    part3 = false
+    part4 = false
+    part5 = false
+    part6 = false
+    fight1Turn1 = false
+    fight1Turn2 = false
+    fight1Turn3 = false
+    fightOneTurnOne = false
+    fightOneTurnTwo = false
+    fight1TurnTwo = false
+    fight1TurnThree = false
+    fightOneTurn2 = false
+    fightOneTurnFour = false
+    fightOneTurn3 = false
+    goblin1Life = 5
+    firstcave = false
+    Traveller = false
+    Powerplay = false
+    Puzzle = false
+    Money = false
+    humanity = false
+    society = false
+    school = false
+    Gamble = false
+    Entertainment = false
+    duel = false
+    fence = false
+    clash = false
+    feint = false
+    parry = false
+    strangerDanger = false
+    swordplay = false
+    cavern = false
+    narrow = false
+    dark = false
+    darkness = false
+    darker = false
+    rock = false
+    rocky = false
+    cold = false
+    colder = false
+    darkers = false
+    coldest = false
+    coldead = false
+    freeze = false
+    freezer = false
+    freezest = false
+    pickle = false
+    torch = false
+    sword = false
+    chest = false
+    bone = false
+    key = false
+    Skyward = false
+    Shishkebab = false
+    Fallen = false
+    once = false
+    heroHealth = 10
+    inventory = false
+    coins = 0
+    weapons = false
+    potions = false
+    inputTalk=""
     document.getElementById("input").value = null
   }
   if(hero == true && goblin1Life < 0){
@@ -172,9 +237,74 @@ function run1(){
     document.getElementById("input").value = null
   }
   if(hero == true && inputTalk == "1" && part5 == true && sly == true){
-    text = "</br>" + "You die."
+    text = "</br>" + "You die, press 1 to restart."
     document.getElementById("chat-area").innerHTML += text
+    hero = false
+    part1 = true
     sly = false
+    part2 = false
+    part3 = false
+    part4 = false
+    part5 = false
+    part6 = false
+    fight1Turn1 = false
+    fight1Turn2 = false
+    fight1Turn3 = false
+    fightOneTurnOne = false
+    fightOneTurnTwo = false
+    fight1TurnTwo = false
+    fight1TurnThree = false
+    fightOneTurn2 = false
+    fightOneTurnFour = false
+    fightOneTurn3 = false
+    goblin1Life = 5
+    firstcave = false
+    Traveller = false
+    Powerplay = false
+    Puzzle = false
+    Money = false
+    humanity = false
+    society = false
+    school = false
+    Gamble = false
+    Entertainment = false
+    duel = false
+    fence = false
+    clash = false
+    feint = false
+    parry = false
+    strangerDanger = false
+    swordplay = false
+    cavern = false
+    narrow = false
+    dark = false
+    darkness = false
+    darker = false
+    rock = false
+    rocky = false
+    cold = false
+    colder = false
+    darkers = false
+    coldest = false
+    coldead = false
+    freeze = false
+    freezer = false
+    freezest = false
+    pickle = false
+    torch = false
+    sword = false
+    chest = false
+    bone = false
+    key = false
+    Skyward = false
+    Shishkebab = false
+    Fallen = false
+    once = false
+    heroHealth = 10
+    inventory = false
+    coins = 0
+    weapons = false
+    potions = false
     inputTalk=""
     document.getElementById("input").value = null
   }
@@ -373,31 +503,34 @@ var boomerang = randomNumberGenerator(1,2)
  //}
  //first A, second A, third A
  if(hero == true && inputTalk == "A" && part3 == true && fight1Turn3 == true && fight1Turn2 == false){
-   text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press C to continue." +
+   text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press 1. North, 3. East, or 4. West." +
    "</marquee>"
    document.getElementById("chat-area").innerHTML += text
    inventory = true
    coins = coins + 5
+   fight1Turn3 = false
    inputTalk=""
    document.getElementById("input").value = null
  }
  //first A, second A, then B
  if(hero == true && inputTalk == "B" && part3 == true && fight1Turn3 == true && fight1Turn2 == false){
-   text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press C to continue." +
+   text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press 1. North, 3. East, or 4. West." +
    "</marquee>"
    document.getElementById("chat-area").innerHTML += text
    inventory = true
    coins = coins + 5
+   fight1Turn3 == false
    inputTalk=""
    document.getElementById("input").value = null
  }
  //first A, then B, then A
  if(hero == true && inputTalk == "A" && part3 == true && fight1Turn2 == false && fight1TurnTwo == true){
-   text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press C to continue." +
+   text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press 1. North, 3. East, or 4. West." +
    "</marquee>"
    document.getElementById("chat-area").innerHTML += text
    inventory = true
    coins = coins + 5
+   fight1TurnTwo = false
    inputTalk=""
    document.getElementById("input").value = null
  }
@@ -432,30 +565,33 @@ var boomerang = randomNumberGenerator(1,2)
 }
 //first A, then B, then B, then A
 if(hero == true && inputTalk == "A" && part3 == true && fight1TurnTwo == false && fight1TurnThree == true){
-  text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press C to continue." +
+  text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press 1. North, 3. East, or 4. West." +
   "</marquee>"
   document.getElementById("chat-area").innerHTML += text
   inventory = true
   coins = coins + 5
+  fight1TurnThree = false
   inputTalk=""
   document.getElementById("input").value = null
 }
 //first A, then B, then B, then B
 if(hero == true && inputTalk == "B" && part3 == true && fight1TurnTwo == false && fight1TurnThree == true){
-  text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press C to continue." +
+  text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press 1. North, 3. East, or 4. West." +
   "</marquee>"
   document.getElementById("chat-area").innerHTML += text
   inventory = true
   coins = coins + 5
+  fight1TurnThree = false
   inputTalk=""
   document.getElementById("input").value = null
 }
 //first B, then A, then A
 if(hero == true && inputTalk == "A" && part3 == true && fightOneTurnTwo == true && fightOneTurnOne == false){
-  text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press C to continue." +
+  text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press 1. North, 3. East, or 4. West." +
   "</marquee>"
   document.getElementById("chat-area").innerHTML += text
   inventory = true
+  fightOneTurnTwo = false
   coins = coins + 5
   inputTalk=""
   document.getElementById("input").value = null
@@ -476,21 +612,23 @@ if(hero == true && inputTalk == "B" && part3 == true && fightOneTurnTwo == true 
 }
 //first B, then A, then B, then A
 if(hero == true && inputTalk == "A" && part3 == true && fightOneTurnFour === true && fightOneTurnTwo == false){
-  text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press C to continue." +
+  text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press 1. North, 3. East, or 4. West." +
   "</marquee>"
   document.getElementById("chat-area").innerHTML += text
   inventory = true
   coins = coins + 5
+  fightOneTurnFour = false
   inputTalk=""
   document.getElementById("input").value = null
 }
 //first B, then A, then B, then B
 if(hero == true && inputTalk == "B" && part3 == true && fightOneTurnFour == true && fightOneTurnTwo == false){
-  text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press C to continue." +
+  text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press 1. North, 3. East, or 4. West." +
   "</marquee>"
   document.getElementById("chat-area").innerHTML += text
   inventory = true
   coins = coins + 5
+  fightOneTurnFour = false
   inputTalk=""
   document.getElementById("input").value = null
 }
@@ -718,9 +856,10 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
   }
   if(hero == true && inputTalk == "1" && part4 == true && school == true){
     text = "</br>" + "Hero: I am heartbreak, I am the thing that breaks the parent's bonds" + "</br>" +
-    "Man: I am the lawyer, who prospers from these events" + "</br>" + "YOU LOSE!"
+    "Man: I am the lawyer, who prospers from these events" + "</br>" + "YOU LOSE! and are forced to give up five coins, press 0 to continue"
      document.getElementById("chat-area").innerHTML += text
      school = false
+     coins = coins - 5
      part4 = false
      part3 = true
      inputTalk=""
@@ -740,10 +879,74 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
   }
   if(hero == true && inputTalk == "2" && part4 == true && firstcave == true){
     text= "</br>" + "Hero: I am the union, I protect and manipulate the teachers" + "</br>" + "Man: I am ..." + "</br>" +
-    "Suddenly the cave rubbles and begins to collapse, the man bails, your greed consumes you and you run over to steal his stuff, but the cave collapses and you die"
+    "Suddenly the cave rubbles and begins to collapse, the man bails, your greed consumes you and you run over to steal his stuff, but the cave collapses and you die, press 1 to continue"
     document.getElementById("chat-area").innerHTML += text
+    hero = false
+    part1 = true
+    sly = false
+    part2 = false
+    part3 = false
+    part4 = false
+    part5 = false
+    part6 = false
+    fight1Turn1 = false
+    fight1Turn2 = false
+    fight1Turn3 = false
+    fightOneTurnOne = false
+    fightOneTurnTwo = false
+    fight1TurnTwo = false
+    fight1TurnThree = false
+    fightOneTurn2 = false
+    fightOneTurnFour = false
+    fightOneTurn3 = false
+    goblin1Life = 5
+    firstcave = false
+    Traveller = false
+    Powerplay = false
+    Puzzle = false
+    Money = false
     humanity = false
-    firstcave = true
+    society = false
+    school = false
+    Gamble = false
+    Entertainment = false
+    duel = false
+    fence = false
+    clash = false
+    feint = false
+    parry = false
+    strangerDanger = false
+    swordplay = false
+    cavern = false
+    narrow = false
+    dark = false
+    darkness = false
+    darker = false
+    rock = false
+    rocky = false
+    cold = false
+    colder = false
+    darkers = false
+    coldest = false
+    coldead = false
+    freeze = false
+    freezer = false
+    freezest = false
+    pickle = false
+    torch = false
+    sword = false
+    chest = false
+    bone = false
+    key = false
+    Skyward = false
+    Shishkebab = false
+    Fallen = false
+    once = false
+    heroHealth = 10
+    inventory = false
+    coins = 0
+    weapons = false
+    potions = false
     inputTalk=""
     document.getElementById("input").innerHTML = null
   }
@@ -768,10 +971,10 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
   if(hero == true && inputTalk == "2" && part4 == true && Gamble == true){
     text = "</br>" + "Hero: I am chance, I am the hope and the certainty that one lucky soul will not be decrepit from the gamblers lure."  + "</br>" +
     "Man: I am despair, I counter all hope." + "</br>" + "1. Hero: I am optimism, I am contageous" + "</br>" +
-    "Man: looks like we are at a draw, let's start over"
+    "Man: looks like we are at a draw, let's start over, press 1 to do so"
     document.getElementById("chat-area").innerHTML += text
     Gamble = false
-    Powerplay = true
+    Traveller = true
     inputTalk=""
     document.getElementById("input").value = null
   }
@@ -787,9 +990,10 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
   }
   if(hero == true && inputTalk == "1" && part4 == true && Entertainment == true){
     text = "</br>" + "Hero: I am hype, I am enthusiasm, I ignore the critics" + "</br>" + "Man: I am disapointment, I bring the object of hype down further."
-     + "</br>" + "Hero: I am, I am, you win [press 0 to continue]"
+     + "</br>" + "Hero: I am, I am, you win, take five coins as a token of your victory [press 0 to continue]"
     document.getElementById("chat-area").innerHTML += text
     Entertainment = false
+    coins = coins - 5
     part4 =  false
     part3 = true
     inputTalk=""
@@ -798,10 +1002,10 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
   if(hero == true && inputTalk == "2" && part4 == true && Entertainment == true){
     text = "</br>" + "Hero: I am loyalty, I am what brings fans in the end because they feel that they owe me." + "</br>"
     + "</br>" + "Man: I am betrayal, I break loyalty" + "</br>" + "1. Hero: I am punishment I keep loyalty in line" + "</br>" +
-    "Man: Looks like we are at a draw, lets start over."
+    "Man: Looks like we are at a draw, lets start over, press 1 to do so"
     document.getElementById("chat-area").innerHTML += text
     Entertainment = false
-    Powerplay = true
+    Traveller = true
     inputTalk=""
     document.getElementById("input").value = null
   }
@@ -997,8 +1201,8 @@ if(hero == true && inputTalk == "B" && part4 == true && parry == true){
 }
 //AABA
 if(hero == true && inputTalk == "A" && part4 == true && swordplay == true){
-  text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--->_____skeleton____ (nothing)" + "</br>" + "Just as he puts down his shield you shishkebab him and he id defeated"
-  + "</br>" +"You money and a key, press 0 to continue"
+  text = "</br>" + "Skeleton: My turn" + "</br>" + "____you--->_____skeleton____ (nothing)" + "</br>" + "Just as he puts down his shield you shishkebab him and he is defeated"
+  + "</br>" +"You get money and a key, press 0 to continue"
   document.getElementById("chat-area").innerHTML += text
   swordplay = false
   part4 = false
@@ -1031,9 +1235,74 @@ if(hero == true && inputTalk == "A" && part4 == true && clash == true){
 }
 //BAAB
 if(hero == true && inputTalk == "B" && part4 == true && clash == true){
-  text = "</br>" + "Skeleton: My turn" + "</br>" + "____ <---you___ <--skeleton____ (charge)" + "</br>" + "You did about the stupidest thing to do, running without a block, and the skeleton throws his sword into your back, and you die"
+  text = "</br>" + "Skeleton: My turn" + "</br>" + "____ <---you___ <--skeleton____ (charge)" + "</br>" + "You did about the stupidest thing to do, running without a block, and the skeleton throws his sword into your back, and you die, press 1 to restart"
   document.getElementById("chat-area").innerHTML += text
+  hero = false
+  part1 = true
+  sly = false
+  part2 = false
+  part3 = false
+  part4 = false
+  part5 = false
+  part6 = false
+  fight1Turn1 = false
+  fight1Turn2 = false
+  fight1Turn3 = false
+  fightOneTurnOne = false
+  fightOneTurnTwo = false
+  fight1TurnTwo = false
+  fight1TurnThree = false
+  fightOneTurn2 = false
+  fightOneTurnFour = false
+  fightOneTurn3 = false
+  goblin1Life = 5
+  firstcave = false
+  Traveller = false
+  Powerplay = false
+  Puzzle = false
+  Money = false
+  humanity = false
+  society = false
+  school = false
+  Gamble = false
+  Entertainment = false
+  duel = false
+  fence = false
   clash = false
+  feint = false
+  parry = false
+  strangerDanger = false
+  swordplay = false
+  cavern = false
+  narrow = false
+  dark = false
+  darkness = false
+  darker = false
+  rock = false
+  rocky = false
+  cold = false
+  colder = false
+  darkers = false
+  coldest = false
+  coldead = false
+  freeze = false
+  freezer = false
+  freezest = false
+  pickle = false
+  torch = false
+  sword = false
+  chest = false
+  bone = false
+  key = false
+  Skyward = false
+  Shishkebab = false
+  Fallen = false
+  once = false
+  heroHealth = 10
+  inventory = false
+  coins = 0
+  weapons = false
+  potions = false
   inputTalk=""
   document.getElementById("input").value = null
 }
@@ -1253,7 +1522,7 @@ if(hero == true && inputTalk == "1" && part4 == true && rock == true){
 }
 //112X
 if(hero == true && inputTalk == "2" && part4 == true && rock == true){
-  text = "</br>" + "Insanity plagues you."
+  text = "</br>" + "Insanity plagues you. Press 1 to restart"
   if(torch == true){
      text += "</br>" + "Looks like you are incapable of escaping due to bad mental health, sorry."
     }
@@ -1261,7 +1530,72 @@ if(hero == true && inputTalk == "2" && part4 == true && rock == true){
       text += ""
     }
   document.getElementById("chat-area").innerHTML += text
+  hero = false
+  part1 = true
+  sly = false
+  part2 = false
+  part3 = false
+  part4 = false
+  part5 = false
+  part6 = false
+  fight1Turn1 = false
+  fight1Turn2 = false
+  fight1Turn3 = false
+  fightOneTurnOne = false
+  fightOneTurnTwo = false
+  fight1TurnTwo = false
+  fight1TurnThree = false
+  fightOneTurn2 = false
+  fightOneTurnFour = false
+  fightOneTurn3 = false
+  goblin1Life = 5
+  firstcave = false
+  Traveller = false
+  Powerplay = false
+  Puzzle = false
+  Money = false
+  humanity = false
+  society = false
+  school = false
+  Gamble = false
+  Entertainment = false
+  duel = false
+  fence = false
+  clash = false
+  feint = false
+  parry = false
+  strangerDanger = false
+  swordplay = false
+  cavern = false
+  narrow = false
+  dark = false
+  darkness = false
+  darker = false
   rock = false
+  rocky = false
+  cold = false
+  colder = false
+  darkers = false
+  coldest = false
+  coldead = false
+  freeze = false
+  freezer = false
+  freezest = false
+  pickle = false
+  torch = false
+  sword = false
+  chest = false
+  bone = false
+  key = false
+  Skyward = false
+  Shishkebab = false
+  Fallen = false
+  once = false
+  heroHealth = 10
+  inventory = false
+  coins = 0
+  weapons = false
+  potions = false
   inputTalk=""
   document.getElementById("input").value = null
 }
@@ -1317,7 +1651,7 @@ if(hero == true && inputTalk == "1" && part4 == true && rocky == true){
 }
 //122X
 if(hero == true && inputTalk == "2" && part4 == true && rocky == true){
-  text = "</br>" + "You hit a trap and die"
+  text = "</br>" + "You hit a trap and die, press 1 to restart"
   if(torch == true){
      text += "</br>" + "The end."
     }
@@ -1325,13 +1659,78 @@ if(hero == true && inputTalk == "2" && part4 == true && rocky == true){
       text += ""
     }
   document.getElementById("chat-area").innerHTML += text
+  hero = false
+  part1 = true
+  sly = false
+  part2 = false
+  part3 = false
+  part4 = false
+  part5 = false
+  part6 = false
+  fight1Turn1 = false
+  fight1Turn2 = false
+  fight1Turn3 = false
+  fightOneTurnOne = false
+  fightOneTurnTwo = false
+  fight1TurnTwo = false
+  fight1TurnThree = false
+  fightOneTurn2 = false
+  fightOneTurnFour = false
+  fightOneTurn3 = false
+  goblin1Life = 5
+  firstcave = false
+  Traveller = false
+  Powerplay = false
+  Puzzle = false
+  Money = false
+  humanity = false
+  society = false
+  school = false
+  Gamble = false
+  Entertainment = false
+  duel = false
+  fence = false
+  clash = false
+  feint = false
+  parry = false
+  strangerDanger = false
+  swordplay = false
+  cavern = false
+  narrow = false
+  dark = false
+  darkness = false
+  darker = false
+  rock = false
   rocky = false
+  cold = false
+  colder = false
+  darkers = false
+  coldest = false
+  coldead = false
+  freeze = false
+  freezer = false
+  freezest = false
+  pickle = false
+  torch = false
+  sword = false
+  chest = false
+  bone = false
+  key = false
+  Skyward = false
+  Shishkebab = false
+  Fallen = false
+  once = false
+  heroHealth = 10
+  inventory = false
+  coins = 0
+  weapons = false
+  potions = false
   inputTalk=""
   document.getElementById("input").value = null
 }
 //123X
 if(hero == true && inputTalk == "3" && part4 == true && rocky == true){
-  text = "</br>" + "You hit a trap and die"
+  text = "</br>" + "You hit a trap and die, press 1 to restart"
   if(torch == true){
      text += "</br>" + "The end."
     }
@@ -1339,7 +1738,72 @@ if(hero == true && inputTalk == "3" && part4 == true && rocky == true){
       text += ""
     }
   document.getElementById("chat-area").innerHTML += text
+  hero = false
+  part1 = true
+  sly = false
+  part2 = false
+  part3 = false
+  part4 = false
+  part5 = false
+  part6 = false
+  fight1Turn1 = false
+  fight1Turn2 = false
+  fight1Turn3 = false
+  fightOneTurnOne = false
+  fightOneTurnTwo = false
+  fight1TurnTwo = false
+  fight1TurnThree = false
+  fightOneTurn2 = false
+  fightOneTurnFour = false
+  fightOneTurn3 = false
+  goblin1Life = 5
+  firstcave = false
+  Traveller = false
+  Powerplay = false
+  Puzzle = false
+  Money = false
+  humanity = false
+  society = false
+  school = false
+  Gamble = false
+  Entertainment = false
+  duel = false
+  fence = false
+  clash = false
+  feint = false
+  parry = false
+  strangerDanger = false
+  swordplay = false
+  cavern = false
+  narrow = false
+  dark = false
+  darkness = false
+  darker = false
+  rock = false
   rocky = false
+  cold = false
+  colder = false
+  darkers = false
+  coldest = false
+  coldead = false
+  freeze = false
+  freezer = false
+  freezest = false
+  pickle = false
+  torch = false
+  sword = false
+  chest = false
+  bone = false
+  key = false
+  Skyward = false
+  Shishkebab = false
+  Fallen = false
+  once = false
+  heroHealth = 10
+  inventory = false
+  coins = 0
+  weapons = false
+  potions = false
   inputTalk=""
   document.getElementById("input").value = null
 }
@@ -1509,13 +1973,79 @@ if(hero == true && inputTalk == "2" && part4 == true && darkers == true){
 }
 //223X
 if(hero == true && inputTalk == "3" && part4 == true && darkers == true){
-  text = "</br>" + "You die"
+  text = "</br>" + "You die, press 1 to restart"
   if(torch == true){
      text += "</br>" + "Sorry, nothing you can do."
     }
     else{
       text += ""
     }
+    hero = false
+    part1 = true
+    sly = false
+    part2 = false
+    part3 = false
+    part4 = false
+    part5 = false
+    part6 = false
+    fight1Turn1 = false
+    fight1Turn2 = false
+    fight1Turn3 = false
+    fightOneTurnOne = false
+    fightOneTurnTwo = false
+    fight1TurnTwo = false
+    fight1TurnThree = false
+    fightOneTurn2 = false
+    fightOneTurnFour = false
+    fightOneTurn3 = false
+    goblin1Life = 5
+    firstcave = false
+    Traveller = false
+    Powerplay = false
+    Puzzle = false
+    Money = false
+    humanity = false
+    society = false
+    school = false
+    Gamble = false
+    Entertainment = false
+    duel = false
+    fence = false
+    clash = false
+    feint = false
+    parry = false
+    strangerDanger = false
+    swordplay = false
+    cavern = false
+    narrow = false
+    dark = false
+    darkness = false
+    darker = false
+    rock = false
+    rocky = false
+    cold = false
+    colder = false
+    darkers = false
+    coldest = false
+    coldead = false
+    freeze = false
+    freezer = false
+    freezest = false
+    pickle = false
+    torch = false
+    sword = false
+    chest = false
+    bone = false
+    key = false
+    Skyward = false
+    Shishkebab = false
+    Fallen = false
+    once = false
+    heroHealth = 10
+    inventory = false
+    coins = 0
+    weapons = false
+    potions = false
   document.getElementById("chat-area").innerHTML += text
   darkers = false
   inputTalk=""
@@ -1668,7 +2198,7 @@ if(hero == true && inputTalk == "3" && part4 == true && coldest == true){
 }
 //132231
 if(hero == true && inputTalk == "1" && part4 == true && coldead == true){
-  text = "</br>" + "You die"
+  text = "</br>" + "You die, press 1 to restart"
   if(torch == true){
      text += "</br>" + "Should of listened to my warning."
     }
@@ -1676,13 +2206,78 @@ if(hero == true && inputTalk == "1" && part4 == true && coldead == true){
       text += ""
     }
   document.getElementById("chat-area").innerHTML += text
+  hero = false
+  part1 = true
+  sly = false
+  part2 = false
+  part3 = false
+  part4 = false
+  part5 = false
+  part6 = false
+  fight1Turn1 = false
+  fight1Turn2 = false
+  fight1Turn3 = false
+  fightOneTurnOne = false
+  fightOneTurnTwo = false
+  fight1TurnTwo = false
+  fight1TurnThree = false
+  fightOneTurn2 = false
+  fightOneTurnFour = false
+  fightOneTurn3 = false
+  goblin1Life = 5
+  firstcave = false
+  Traveller = false
+  Powerplay = false
+  Puzzle = false
+  Money = false
+  humanity = false
+  society = false
+  school = false
+  Gamble = false
+  Entertainment = false
+  duel = false
+  fence = false
+  clash = false
+  feint = false
+  parry = false
+  strangerDanger = false
+  swordplay = false
+  cavern = false
+  narrow = false
+  dark = false
+  darkness = false
+  darker = false
+  rock = false
+  rocky = false
+  cold = false
+  colder = false
+  darkers = false
+  coldest = false
   coldead = false
+  freeze = false
+  freezer = false
+  freezest = false
+  pickle = false
+  torch = false
+  sword = false
+  chest = false
+  bone = false
+  key = false
+  Skyward = false
+  Shishkebab = false
+  Fallen = false
+  once = false
+  heroHealth = 10
+  inventory = false
+  coins = 0
+  weapons = false
+  potions = false
   inputTalk=""
   document.getElementById("input").value = null
 }
 //1322312
 if(hero == true && inputTalk == "2" && part4 == true && coldead == true){
-  text = "</br>" + "You die"
+  text = "</br>" + "You die, press 1 to restart"
   if(torch == true){
      text += "</br>" + "Its true."
     }
@@ -1690,13 +2285,78 @@ if(hero == true && inputTalk == "2" && part4 == true && coldead == true){
       text += ""
     }
   document.getElementById("chat-area").innerHTML += text
+  hero = false
+  part1 = true
+  sly = false
+  part2 = false
+  part3 = false
+  part4 = false
+  part5 = false
+  part6 = false
+  fight1Turn1 = false
+  fight1Turn2 = false
+  fight1Turn3 = false
+  fightOneTurnOne = false
+  fightOneTurnTwo = false
+  fight1TurnTwo = false
+  fight1TurnThree = false
+  fightOneTurn2 = false
+  fightOneTurnFour = false
+  fightOneTurn3 = false
+  goblin1Life = 5
+  firstcave = false
+  Traveller = false
+  Powerplay = false
+  Puzzle = false
+  Money = false
+  humanity = false
+  society = false
+  school = false
+  Gamble = false
+  Entertainment = false
+  duel = false
+  fence = false
+  clash = false
+  feint = false
+  parry = false
+  strangerDanger = false
+  swordplay = false
+  cavern = false
+  narrow = false
+  dark = false
+  darkness = false
+  darker = false
+  rock = false
+  rocky = false
+  cold = false
+  colder = false
+  darkers = false
+  coldest = false
   coldead = false
+  freeze = false
+  freezer = false
+  freezest = false
+  pickle = false
+  torch = false
+  sword = false
+  chest = false
+  bone = false
+  key = false
+  Skyward = false
+  Shishkebab = false
+  Fallen = false
+  once = false
+  heroHealth = 10
+  inventory = false
+  coins = 0
+  weapons = false
+  potions = false
   inputTalk=""
   document.getElementById("input").value = null
 }
 //1322313
 if(hero == true && inputTalk == "3" && part4 == true && coldead == true){
-  text = "</br>" + "You die"
+  text = "</br>" + "You die, press 1 to restart"
   if(torch == true){
      text += "</br>" + "Puzzles aren't your strength I see."
     }
@@ -1704,7 +2364,72 @@ if(hero == true && inputTalk == "3" && part4 == true && coldead == true){
       text += ""
     }
   document.getElementById("chat-area").innerHTML += text
+  hero = false
+  part1 = true
+  sly = false
+  part2 = false
+  part3 = false
+  part4 = false
+  part5 = false
+  part6 = false
+  fight1Turn1 = false
+  fight1Turn2 = false
+  fight1Turn3 = false
+  fightOneTurnOne = false
+  fightOneTurnTwo = false
+  fight1TurnTwo = false
+  fight1TurnThree = false
+  fightOneTurn2 = false
+  fightOneTurnFour = false
+  fightOneTurn3 = false
+  goblin1Life = 5
+  firstcave = false
+  Traveller = false
+  Powerplay = false
+  Puzzle = false
+  Money = false
+  humanity = false
+  society = false
+  school = false
+  Gamble = false
+  Entertainment = false
+  duel = false
+  fence = false
+  clash = false
+  feint = false
+  parry = false
+  strangerDanger = false
+  swordplay = false
+  cavern = false
+  narrow = false
+  dark = false
+  darkness = false
+  darker = false
+  rock = false
+  rocky = false
+  cold = false
+  colder = false
+  darkers = false
+  coldest = false
   coldead = false
+  freeze = false
+  freezer = false
+  freezest = false
+  pickle = false
+  torch = false
+  sword = false
+  chest = false
+  bone = false
+  key = false
+  Skyward = false
+  Shishkebab = false
+  Fallen = false
+  once = false
+  heroHealth = 10
+  inventory = false
+  coins = 0
+  weapons = false
+  potions = false
   inputTalk=""
   document.getElementById("input").value = null
 }

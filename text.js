@@ -56,6 +56,13 @@ var fight1TurnThree = false
 var fightOneTurn2 = false
 var fightOneTurnFour = false
 var fightOneTurn3 = false
+var fightATurnA = false
+var fightATurn1 = false
+var fight1TurnA = false
+var fightOneTurnA = false
+var fightATurnOne = false
+var fightBTurnB = false
+var fightCTurnC = false
 var goblin1Life = 5
 //cave variables
 var firstcave = false
@@ -99,6 +106,9 @@ var sword = false
 var chest = false
 var bone = false
 var key = false
+var bowAndArrow = false
+var strengthPotion = 0
+var morphPotion = 0
 
 var Skyward = false
 var Shishkebab = false
@@ -157,6 +167,13 @@ function run1(){
     fightOneTurn2 = false
     fightOneTurnFour = false
     fightOneTurn3 = false
+    fightATurnA = false
+    fightATurn1 = false
+    fight1TurnA = false
+    fightOneTurnA = false
+    fightATurnOne = false
+    fightBTurnB = false
+    fightCTurnC = false
     goblin1Life = 5
     firstcave = false
     Traveller = false
@@ -196,6 +213,9 @@ function run1(){
     chest = false
     bone = false
     key = false
+    strengthPotion = 0
+    morphPotion = 0
+    bowAndArrow = false
     Skyward = false
     Shishkebab = false
     Fallen = false
@@ -257,6 +277,13 @@ function run1(){
     fightOneTurn2 = false
     fightOneTurnFour = false
     fightOneTurn3 = false
+    fightATurnA = false
+    fightATurn1 = false
+    fight1TurnA = false
+    fightOneTurnA = false
+    fightATurnOne = false
+    fightBTurnB = false
+    fightCTurnC = false
     goblin1Life = 5
     firstcave = false
     Traveller = false
@@ -296,6 +323,9 @@ function run1(){
     chest = false
     bone = false
     key = false
+    bowAndArrow = false
+    strengthPotion = 0
+    morphPotion = 0
     Skyward = false
     Shishkebab = false
     Fallen = false
@@ -333,7 +363,7 @@ function run1(){
     inputTalk= ""
     document.getElementById("input").value = null
   }
-  if(hero == true && inputTalk == "1" && part6 == true && coins > 0){
+  if(hero == true && inputTalk == "1" && part6 == true && coins > 0 && weapons == false){
     text = "</br>" + "For sale there is.." + "</br>" + "1. (10 coins) a metal sword(better than the stupid little wooden sword of yours)" +
     "</br>" +"2. (10 coins) a new fighting move, Shishkebab"+"</br>"+"3. (15 coins) A bow and arrow"+"</br>" + "4. Go back"
     document.getElementById("chat-area").innerHTML += text
@@ -341,12 +371,82 @@ function run1(){
     inputTalk= ""
     document.getElementById("input").value = null
   }
-  if(hero == true && inputTalk == "2" && part6 == true && coins > 0){
+  if(hero == true && inputTalk == "2" && part6 == true && coins > 0 && potions == false){
     text = "</br>" + "For sale there is.." + "</br>" + "1. (5 coins) a health potion(restores 5 health)" +
     "</br>" +"2. (5 coins) strength potion(increases your attack temporarily)"+"</br>"+
     "3. (10 coins) morph potion(transforms your enemy into a passive little animal)"+"</br>" + "4. Go back"
     document.getElementById("chat-area").innerHTML += text
     potions = true
+    inputTalk= ""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "3" && part6 == true && coins > 0){
+    text = "</br>" + "press 0 to continue"
+    document.getElementById("chat-area").innerHTML += text
+    part6 = false
+    part3 = true
+    inputTalk= ""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "1" && part6 == true && weapons == true && coins > 0){
+    text = "</br>" + "You bought a metal sword! Press 2 to buy Shishkebab, 3 to buy a bow and arrow, and 4 to go back"
+    document.getElementById("chat-area").innerHTML += text
+    weapons = false
+    coins = coins - 10
+    sword = true
+    inputTalk= ""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "2" && part6 == true && weapons == true && coins > 0){
+    text = "</br>" + "You bought a new move! Press 1 to get a metal sword, 3 to buy a bow and arrow, and 4 to go back"
+    document.getElementById("chat-area").innerHTML += text
+    weapons = false
+    coins = coins - 10
+    Shishkebab = true
+    inputTalk= ""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "3" && part6 == true && weapons == true && coins > 0){
+    text = "</br>" + "You bought a bow and arrow! Press 1 to get a metal sword, 2 to buy Shishkebab, and 4 to go back"
+    document.getElementById("chat-area").innerHTML += text
+    weapons = false
+    coins = coins - 15
+    bowAndArrow = true
+    inputTalk= ""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "4" && part6 == true){
+    text = "</br>" + "press 0 to continue"
+    document.getElementById("chat-area").innerHTML += text
+    part6 = false
+    part3 = true
+    inputTalk= ""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "1" && part6 == true && coins > 0){
+    text = "</br>" + "You got a health potion. Press 2 to buy strength potion, 3 to buy morph potion and 4 to go go back"
+    document.getElementById("chat-area").innerHTML += text
+    potions = false
+    coins = coins - 5
+    heroHealth = heroHealth + 5
+    inputTalk= ""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "2" && part6 == true && coins > 0){
+    text = "</br>" + "You got a strength potion. Press 1 to buy health potion, 3 to buy morph potion and 4 to go go back"
+    document.getElementById("chat-area").innerHTML += text
+    potions = false
+    coins = coins - 5
+    strengthPotion = strengthPotion + 1
+    inputTalk= ""
+    document.getElementById("input").value = null
+  }
+  if(hero == true && inputTalk == "3" && part6 == true && coins > 0){
+    text = "</br>" + "You got a morph potion. Press 1 to buy health potion, 2 to buy strength potion and 4 to go go back"
+    document.getElementById("chat-area").innerHTML += text
+    potions = false
+    coins = coins - 10
+    morphPotion = morphPotion + 1
     inputTalk= ""
     document.getElementById("input").value = null
   }
@@ -361,6 +461,15 @@ if(hero == true && inputTalk == "0" && part3 == true){
 if(hero == true && inputTalk == "2" && part3 == true){
   text = "</br>" + "A goblin appears, you must fight it, which attack would you like to use" + "</br>" +
    "A. use slash" + "</br>" + "B. use uppercut"
+   if(Shishkebab == true){
+     text += "</br>" + "D. Shishkebab"
+   }
+   if(Fallen == true){
+     text += "</br>" + "E. Fallen"
+   }
+   if(Skyward == true){
+     text += "</br>" + "You can not use Skyward Sword yet"
+   }
   document.getElementById("chat-area").innerHTML += text
   inputTalk=""
   document.getElementById("input").value = null
@@ -370,6 +479,15 @@ if(hero == true && inputTalk == "A" && fight1Turn1 == true && part3 == true && f
   text = "</br>" + "The goblin took 2 damage, it has 3 life left, goblin uses arrow boomerang attack, press C to continue"
   if(sword == true){
     goblin1Life--
+  }
+  if(Shishkebab == true){
+    text += "</br>" + "D. Shishkebab"
+  }
+  if(Fallen == true){
+    text += "</br>" + "E. Fallen"
+  }
+  if(Skyward == true){
+    text += "</br>" + "You can not use Skyward Sword yet"
   }
   document.getElementById("chat-area").innerHTML += text
   goblin1Life = goblin1Life - 2
@@ -400,8 +518,62 @@ var boomerang = randomNumberGenerator(1,2)
    if(sword == true){
      goblin1Life--
    }
+   if(Shishkebab == true){
+     text += "</br>" + "D. Shishkebab"
+   }
+   if(Fallen == true){
+     text += "</br>" + "E. Fallen"
+   }
+   if(Skyward == true){
+     text += "</br>" + "You can not use Skyward Sword yet"
+   }
    goblin1Life = goblin1Life - 3
    fightOneTurnOne = true
+   inputTalk=""
+   document.getElementById("input").value = null
+ }
+ //first D
+ if(hero == true && inputTalk == "D" && fight1Turn2 == false && fight1TurnTwo == false && fight1TurnThree == false && fight1Turn3 == false && fightOneTurnOne == false && fightOneTurnTwo == false && part3 == true && fightOneTurnFour == false && fightOneTurn2 == false){
+   text = "</br>" + "The goblin took 1 damage, it has 4 life left, goblin uses boomerang, press C to continue." +
+   "</br>" + "A. use slash" + "</br>" + "B. use uppercut"
+   document.getElementById("chat-area").innerHTML += text
+   if(sword == true){
+     goblin1Life--
+   }
+   if(Shishkebab == true){
+     text += "</br>" + "D. Shishkebab"
+   }
+   if(Fallen == true){
+     text += "</br>" + "E. Fallen"
+   }
+   if(Skyward == true){
+     text += "</br>" + "You can not use Skyward Sword yet"
+   }
+   goblin1Life = goblin1Life - 1
+   fight1TurnA = true
+   inputTalk=""
+   document.getElementById("input").value = null
+ }
+ //first E
+ if(hero == true && inputTalk == "E" && fight1Turn2 == false && fight1TurnTwo == false && fight1TurnThree == false && fight1Turn3 == false && fightOneTurnOne == false && fightOneTurnTwo == false && part3 == true && fightOneTurnFour == false && fightOneTurn2 == false){
+   text = "</br>" + "The goblin took 3 damage, you took 1 damage, goblin uses boomerang, press C to continue." +
+   "</br>" + "A. use slash" + "</br>" + "B. use uppercut"
+   document.getElementById("chat-area").innerHTML += text
+   if(sword == true){
+     goblin1Life--
+   }
+   if(Shishkebab == true){
+     text += "</br>" + "D. Shishkebab"
+   }
+   if(Fallen == true){
+     text += "</br>" + "E. Fallen"
+   }
+   if(Skyward == true){
+     text += "</br>" + "You can not use Skyward Sword yet"
+   }
+   goblin1Life = goblin1Life - 3
+   heroHealth = heroHealth - 1
+   fightATurn1 = true
    inputTalk=""
    document.getElementById("input").value = null
  }
@@ -412,6 +584,15 @@ var boomerang = randomNumberGenerator(1,2)
    if(sword == true){
      goblin1Life--
    }
+   if(Shishkebab == true){
+     text += "</br>" + "D. Shishkebab"
+   }
+   if(Fallen == true){
+     text += "</br>" + "E. Fallen"
+   }
+   if(Skyward == true){
+     text += "</br>" + "You can not use Skyward Sword yet"
+   }
    goblin1Life = goblin1Life - 2
    fight1Turn2 = false
    fight1Turn3 = true
@@ -421,6 +602,18 @@ var boomerang = randomNumberGenerator(1,2)
  }
  if(randomNumberGenerator(1,2) == 1 && hero == true && inputTalk == "C" && part3 == true && fight1Turn3 == true){
    text = "</br>" + "The goblin inflicts three damage to your life. Would you like to" + "</br>" + "A. use slash" + "</br>" + "B. use uppercut"
+   if(sword == true){
+     goblin1Life--
+   }
+   if(Shishkebab == true){
+     text += "</br>" + "D. Shishkebab"
+   }
+   if(Fallen == true){
+     text += "</br>" + "E. Fallen"
+   }
+   if(Skyward == true){
+     text += "</br>" + "You can not use Skyward Sword yet"
+   }
    document.getElementById("chat-area").innerHTML += text
    heroHealth = heroHealth - 3
    inputTalk=""
@@ -428,9 +621,57 @@ var boomerang = randomNumberGenerator(1,2)
  }
  if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 == true && fight1Turn3 == true){
    text = "</br>" + "The goblin missed, it inflicted 0 damage to your life, would you like to" + "</br>" + "A. use slash" + "</br>" + "B. use uppercut"
+   if(sword == true){
+     goblin1Life--
+   }
+   if(Shishkebab == true){
+     text += "</br>" + "D. Shishkebab"
+   }
+   if(Fallen == true){
+     text += "</br>" + "E. Fallen"
+   }
+   if(Skyward == true){
+     text += "</br>" + "You can not use Skyward Sword yet"
+   }
    document.getElementById("chat-area").innerHTML += text
    inputTalk=""
    document.getElementById("input").value = null
+ }
+ //first A, then D
+ if(hero == true && inputTalk == "D" && fight1Turn2 == true && part3 == true){
+   text = "</br>" + "The goblin took 1 more damage, it has 2 life left, goblin uses boomerang, press C to continue."
+   document.getElementById("chat-area").innerHTML += text
+   if(sword == true){
+     goblin1Life--
+   }
+   if(Shishkebab == true){
+     text += "</br>" + "D. Shishkebab"
+   }
+   if(Fallen == true){
+     text += "</br>" + "E. Fallen"
+   }
+   if(Skyward == true){
+     text += "</br>" + "You can not use Skyward Sword yet"
+   }
+   goblin1Life = goblin1Life - 2
+   fight1Turn2 = false
+   fightATurnA = true
+   inputTalk=""
+   document.getElementById("input").value = null
+   console.log("ji");
+ }
+ //first A, then E
+ if(hero == true && inputTalk == "E" && fight1Turn2 == true && part3 == true){
+   text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press 1. North, 3. East, or 4. West." +
+   "</marquee>"
+   document.getElementById("chat-area").innerHTML += text
+   inventory = true
+   heroHealth = heroHealth - 1
+   coins = coins + 5
+   fight1Turn2 = false
+   inputTalk=""
+   document.getElementById("input").value = null
+   console.log("ji");
  }
  //first B, then A
  if(hero == true && inputTalk == "A" && part3 == true && fight1Turn2 == false && fightOneTurnOne == true){
@@ -439,9 +680,65 @@ var boomerang = randomNumberGenerator(1,2)
    if(sword == true){
      goblin1Life--
    }
+   if(Shishkebab == true){
+     text += "</br>" + "D. Shishkebab"
+   }
+   if(Fallen == true){
+     text += "</br>" + "E. Fallen"
+   }
+   if(Skyward == true){
+     text += "</br>" + "You can not use Skyward Sword yet"
+   }
    goblin1Life = goblin1Life - 2
    fightOneTurnOne = false
    fightOneTurnTwo = true
+   inputTalk=""
+   document.getElementById("input").value = null
+   console.log("hi");
+ }
+ //first B, then D
+ if(hero == true && inputTalk == "D" && part3 == true && fight1Turn2 == false && fightOneTurnOne == true){
+   text = "</br>" + "The goblin took 1 more damage, it has 3 life left, you MUST press C to continue"
+   document.getElementById("chat-area").innerHTML += text
+   if(sword == true){
+     goblin1Life--
+   }
+   if(Shishkebab == true){
+     text += "</br>" + "D. Shishkebab"
+   }
+   if(Fallen == true){
+     text += "</br>" + "E. Fallen"
+   }
+   if(Skyward == true){
+     text += "</br>" + "You can not use Skyward Sword yet"
+   }
+   goblin1Life = goblin1Life - 1
+   fightOneTurnOne = false
+   fightOneTurnA = true
+   inputTalk=""
+   document.getElementById("input").value = null
+   console.log("hi");
+ }
+ //first B, then E
+ if(hero == true && inputTalk == "E" && part3 == true && fight1Turn2 == false && fightOneTurnOne == true){
+   text = "</br>" + "The goblin took 3 more damage, it has 1 life left, you took 1 damage, you MUST press C to continue"
+   document.getElementById("chat-area").innerHTML += text
+   if(sword == true){
+     goblin1Life--
+   }
+   if(Shishkebab == true){
+     text += "</br>" + "D. Shishkebab"
+   }
+   if(Fallen == true){
+     text += "</br>" + "E. Fallen"
+   }
+   if(Skyward == true){
+     text += "</br>" + "You can not use Skyward Sword yet"
+   }
+   goblin1Life = goblin1Life - 3
+   heroHealth = heroHealth - 1
+   fightOneTurnOne = false
+   fightATurnOne = true
    inputTalk=""
    document.getElementById("input").value = null
    console.log("hi");
@@ -453,6 +750,15 @@ var boomerang = randomNumberGenerator(1,2)
    document.getElementById("chat-area").innerHTML += text
    if(sword == true){
      goblin1Life--
+   }
+   if(Shishkebab == true){
+     text += "</br>" + "D. Shishkebab"
+   }
+   if(Fallen == true){
+     text += "</br>" + "E. Fallen"
+   }
+   if(Skyward == true){
+     text += "</br>" + "You can not use Skyward Sword yet"
    }
    goblin1Life = goblin1Life - 1
    fight1Turn2 = false
@@ -467,6 +773,15 @@ var boomerang = randomNumberGenerator(1,2)
    if(sword == true){
      goblin1Life--
    }
+   if(Shishkebab == true){
+     text += "</br>" + "D. Shishkebab"
+   }
+   if(Fallen == true){
+     text += "</br>" + "E. Fallen"
+   }
+   if(Skyward == true){
+     text += "</br>" + "You can not use Skyward Sword yet"
+   }
    goblin1Life = goblin1Life - 1
    fightOneTurnOne = false
    fightOneTurn2 = true
@@ -475,6 +790,18 @@ var boomerang = randomNumberGenerator(1,2)
  }
  if(randomNumberGenerator(1,2) == 1 && hero == true && inputTalk == "C" && part3 == true && fightOneTurnOne == false && fightOneTurnTwo == true){
    text = "</br>" + "The goblin uses boomerang and inflicts three damage to your life" + "</br>" + "A. use slash" + "</br>" + "B. use uppercut"
+   if(sword == true){
+     goblin1Life--
+   }
+   if(Shishkebab == true){
+     text += "</br>" + "D. Shishkebab"
+   }
+   if(Fallen == true){
+     text += "</br>" + "E. Fallen"
+   }
+   if(Skyward == true){
+     text += "</br>" + "You can not use Skyward Sword yet"
+   }
    document.getElementById("chat-area").innerHTML += text
    heroHealth = heroHealth - 3
    inputTalk=""
@@ -483,6 +810,18 @@ var boomerang = randomNumberGenerator(1,2)
  if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 == true && fightOneTurnOne == false && fightOneTurnTwo == true){
    text = "</br>" + "The goblin uses boomerang but he misses, no damage is inflicted to your life" + "</br>" +
    "A. use slash" + "</br>" + "B. use uppercut"
+   if(sword == true){
+     goblin1Life--
+   }
+   if(Shishkebab == true){
+     text += "</br>" + "D. Shishkebab"
+   }
+   if(Fallen == true){
+     text += "</br>" + "E. Fallen"
+   }
+   if(Skyward == true){
+     text += "</br>" + "You can not use Skyward Sword yet"
+   }
    document.getElementById("chat-area").innerHTML += text
    inputTalk=""
    document.getElementById("input").value = null
@@ -512,6 +851,29 @@ var boomerang = randomNumberGenerator(1,2)
    inputTalk=""
    document.getElementById("input").value = null
  }
+ //first A, then A, then D
+ if(hero == true && inputTalk == "D" && part3 == true && fight1Turn3 == true && fight1Turn2 == false){
+   text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press 1. North, 3. East, or 4. West." +
+   "</marquee>"
+   document.getElementById("chat-area").innerHTML += text
+   inventory = true
+   coins = coins + 5
+   fight1Turn3 = false
+   inputTalk=""
+   document.getElementById("input").value = null
+ }
+ //first A, then A, then E
+ if(hero == true && inputTalk == "E" && part3 == true && fight1Turn3 == true && fight1Turn2 == false){
+   text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press 1. North, 3. East, or 4. West." +
+   "</marquee>"
+   document.getElementById("chat-area").innerHTML += text
+   inventory = true
+   heroHealth = heroHealth - 1
+   coins = coins + 5
+   fight1Turn3 = false
+   inputTalk=""
+   document.getElementById("input").value = null
+ }
  //first A, second A, then B
  if(hero == true && inputTalk == "B" && part3 == true && fight1Turn3 == true && fight1Turn2 == false){
    text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press 1. North, 3. East, or 4. West." +
@@ -534,13 +896,55 @@ var boomerang = randomNumberGenerator(1,2)
    inputTalk=""
    document.getElementById("input").value = null
  }
+ //first A, then B, then E
+ if(hero == true && inputTalk == "E" && part3 == true && fight1Turn2 == false && fight1TurnTwo == true){
+   text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press 1. North, 3. East, or 4. West." +
+   "</marquee>"
+   document.getElementById("chat-area").innerHTML += text
+   inventory = true
+   heroHealth = heroHealth - 1
+   coins = coins + 5
+   fight1TurnTwo = false
+   inputTalk=""
+   document.getElementById("input").value = null
+ }
  //first A, then B, then B
  if(hero == true && inputTalk == "B" && part3 == true && fight1Turn2 == false && fight1TurnTwo == true){
    text = "</br>" + "The goblin takes one damage but is already dazed and cannot be dazed again, so it wakes up, press C to continue"
    if(sword == true){
      goblin1Life--
    }
+   if(Shishkebab == true){
+     text += "D. Shishkebab"
+   }
+   if(Fallen == true){
+     text += "E. Fallen"
+   }
+   if(Skyward == true){
+     text += "You can not use Skyward Sword yet"
+   }
    document.getElementById("chat-area").innerHTML += text
+   inputTalk=""
+   document.getElementById("input").value = null
+ }
+ //first A, then B, then D
+ if(hero == true && inputTalk == "D" && part3 == true && fight1Turn2 == false && fight1TurnTwo == true){
+   text = "</br>" + "The goblin takes one damage, press C to continue"
+   if(sword == true){
+     goblin1Life--
+   }
+   if(Shishkebab == true){
+     text += "D. Shishkebab"
+   }
+   if(Fallen == true){
+     text += "E. Fallen"
+   }
+   if(Skyward == true){
+     text += "You can not use Skyward Sword yet"
+   }
+   document.getElementById("chat-area").innerHTML += text
+   goblin1Life = goblin1Life - 1
+   fightBTurnB = true
    inputTalk=""
    document.getElementById("input").value = null
  }
@@ -557,6 +961,18 @@ var boomerang = randomNumberGenerator(1,2)
  if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 == true && fight1Turn2 == false && fight1TurnTwo == true){
    text = "</br>" + "It's the goblin's turn to attack and he missed completely, inflicting zero damage" + "</br>" +
    "A. use slash" + "</br>" + "B. use uppercut"
+   if(sword == true){
+     goblin1Life--
+   }
+   if(Shishkebab == true){
+     text += "</br>" + "D. Shishkebab"
+   }
+   if(Fallen == true){
+     text += "</br>" + "E. Fallen"
+   }
+   if(Skyward == true){
+     text += "</br>" + "You can not use Skyward Sword yet"
+   }
    document.getElementById("chat-area").innerHTML += text
    fight1TurnTwo = false
    fight1TurnThree = true
@@ -569,6 +985,29 @@ if(hero == true && inputTalk == "A" && part3 == true && fight1TurnTwo == false &
   "</marquee>"
   document.getElementById("chat-area").innerHTML += text
   inventory = true
+  coins = coins + 5
+  fight1TurnThree = false
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//first A, then B, then B, then D
+if(hero == true && inputTalk == "D" && part3 == true && fight1TurnTwo == false && fight1TurnThree == true){
+  text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press 1. North, 3. East, or 4. West." +
+  "</marquee>"
+  document.getElementById("chat-area").innerHTML += text
+  inventory = true
+  coins = coins + 5
+  fight1TurnThree = false
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//first A, then B, then B, then E
+if(hero == true && inputTalk == "E" && part3 == true && fight1TurnTwo == false && fight1TurnThree == true){
+  text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press 1. North, 3. East, or 4. West." +
+  "</marquee>"
+  document.getElementById("chat-area").innerHTML += text
+  inventory = true
+  heroHealth = heroHealth - 1
   coins = coins + 5
   fight1TurnThree = false
   inputTalk=""
@@ -596,6 +1035,18 @@ if(hero == true && inputTalk == "A" && part3 == true && fightOneTurnTwo == true 
   inputTalk=""
   document.getElementById("input").value = null
 }
+//first B, then A, then E
+if(hero == true && inputTalk == "E" && part3 == true && fightOneTurnTwo == true && fightOneTurnOne == false){
+  text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press 1. North, 3. East, or 4. West." +
+  "</marquee>"
+  document.getElementById("chat-area").innerHTML += text
+  inventory = true
+  heroHealth = heroHealth - 1
+  fightOneTurnTwo = false
+  coins = coins + 5
+  inputTalk=""
+  document.getElementById("input").value = null
+}
 //first B, then A, then B
 if(hero == true && inputTalk == "B" && part3 == true && fightOneTurnTwo == true && fightOneTurnOne == false){
   text = "</br>" + "The goblin is dazed again, it is unable to attack and takes one damage" + "</br>" +
@@ -603,10 +1054,42 @@ if(hero == true && inputTalk == "B" && part3 == true && fightOneTurnTwo == true 
   if(sword == true){
     goblin1Life--
   }
+  if(Shishkebab == true){
+    text +=  "</br>" + "D. Shishkebab"
+  }
+  if(Fallen == true){
+    text += "</br>" + "E. Fallen"
+  }
+  if(Skyward == true){
+    text += "</br>" + "You can not use Skyward Sword yet"
+  }
   document.getElementById("chat-area").innerHTML += text
   goblin1Life = goblin1Life - 1
   fightOneTurnTwo = false
   fightOneTurnFour = true
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//first B, then A, then D
+if(hero == true && inputTalk == "D" && part3 == true && fightOneTurnTwo == true && fightOneTurnOne == false){
+  text = "</br>" + "The goblin takes 1 damage, press C to continue" + "</br>" +
+  "A. use slash" + "</br>" + "B. use uppercut"
+  if(sword == true){
+    goblin1Life--
+  }
+  if(Shishkebab == true){
+    text +=  "</br>" + "D. Shishkebab"
+  }
+  if(Fallen == true){
+    text += "</br>" + "E. Fallen"
+  }
+  if(Skyward == true){
+    text += "</br>" + "You can not use Skyward Sword yet"
+  }
+  document.getElementById("chat-area").innerHTML += text
+  goblin1Life = goblin1Life - 1
+  fightOneTurnTwo = false
+  fightCTurnC = true
   inputTalk=""
   document.getElementById("input").value = null
 }
@@ -616,6 +1099,29 @@ if(hero == true && inputTalk == "A" && part3 == true && fightOneTurnFour === tru
   "</marquee>"
   document.getElementById("chat-area").innerHTML += text
   inventory = true
+  coins = coins + 5
+  fightOneTurnFour = false
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//first B, then A, then B, then D
+if(hero == true && inputTalk == "D" && part3 == true && fightOneTurnFour === true && fightOneTurnTwo == false){
+  text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press 1. North, 3. East, or 4. West." +
+  "</marquee>"
+  document.getElementById("chat-area").innerHTML += text
+  inventory = true
+  coins = coins + 5
+  fightOneTurnFour = false
+  inputTalk=""
+  document.getElementById("input").value = null
+}
+//first B, then A, then B, then E
+if(hero == true && inputTalk == "E" && part3 == true && fightOneTurnFour === true && fightOneTurnTwo == false){
+  text = "</br>" + "<marquee>" + "The goblin is slayed! Collect your prize of five coins and a new fighting move, Boomerang Sword! Press 1. North, 3. East, or 4. West." +
+  "</marquee>"
+  document.getElementById("chat-area").innerHTML += text
+  inventory = true
+  heroHealth = heroHealth - 1
   coins = coins + 5
   fightOneTurnFour = false
   inputTalk=""
@@ -636,6 +1142,18 @@ if(hero == true && inputTalk == "B" && part3 == true && fightOneTurnFour == true
 if(randomNumberGenerator(1,2) == 1 && hero == true && inputTalk == "C" && part3 == true && fightOneTurn2 == true && fightOneTurnOne == false){
   text = "</br>" + "The goblin's boomerang hits you straight in the face, you take three damage." + "</br>" +
   "A. use slash" + "</br>" + "B. use uppercut"
+  if(sword == true){
+    goblin1Life--
+  }
+  if(Shishkebab == true){
+    text += "</br>" + "D. Shishkebab"
+  }
+  if(Fallen == true){
+    text += "</br>" + "E. Fallen"
+  }
+  if(Skyward == true){
+    text += "</br>" + "You can not use Skyward Sword yet"
+  }
   document.getElementById("chat-area").innerHTML += text
   heroHealth = heroHealth - 3
   fightOneTurn2 == false
@@ -646,6 +1164,18 @@ if(randomNumberGenerator(1,2) == 1 && hero == true && inputTalk == "C" && part3 
 if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 == true && fightOneTurn2 == true && fightOneTurnTwo == false){
   text = "</br>" + "It's the goblin's boomerang missed and he almost hit himself! You take no damage." + "</br>" +
   "A. use slash" + "</br>" + "B. use uppercut"
+  if(sword == true){
+    goblin1Life--
+  }
+  if(Shishkebab == true){
+    text += "</br>" + "D. Shishkebab"
+  }
+  if(Fallen == true){
+    text += "</br>" + "E. Fallen"
+  }
+  if(Skyward == true){
+    text += "</br>" + "You can not use Skyward Sword yet"
+  }
   document.getElementById("chat-area").innerHTML += text
   fightOneTurn2 == false
   fightOneTurn3 == true
@@ -659,6 +1189,15 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
    "</br>" + "A. use slash" + "</br>" + "B. use uppercut"
    if(sword == true){
      goblin1Life--
+   }
+   if(Shishkebab == true){
+     text += "</br>" + "D. Shishkebab"
+   }
+   if(Fallen == true){
+     text += "</br>" + "E. Fallen"
+   }
+   if(Skyward == true){
+     text += "</br>" + "You can not use Skyward Sword yet"
    }
    document.getElementById("chat-area").innerHTML += text
    inputTalk=""
@@ -899,6 +1438,13 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     fightOneTurn2 = false
     fightOneTurnFour = false
     fightOneTurn3 = false
+    fightATurnA = false
+    fightATurn1 = false
+    fight1TurnA = false
+    fightOneTurnA = false
+    fightATurnOne = false
+    fightBTurnB = false
+    fightCTurnC = false
     goblin1Life = 5
     firstcave = false
     Traveller = false
@@ -938,6 +1484,9 @@ if(randomNumberGenerator(1,2) == 2 && hero == true && inputTalk == "C" && part3 
     chest = false
     bone = false
     key = false
+    bowAndArrow = false
+    strengthPotion = 0
+    morphPotion = 0
     Skyward = false
     Shishkebab = false
     Fallen = false
@@ -1255,6 +1804,13 @@ if(hero == true && inputTalk == "B" && part4 == true && clash == true){
   fightOneTurn2 = false
   fightOneTurnFour = false
   fightOneTurn3 = false
+  fightATurnA = false
+  fightATurn1 = false
+  fight1TurnA = false
+  fightOneTurnA = false
+  fightATurnOne = false
+  fightBTurnB = false
+  fightCTurnC = false
   goblin1Life = 5
   firstcave = false
   Traveller = false
@@ -1294,6 +1850,9 @@ if(hero == true && inputTalk == "B" && part4 == true && clash == true){
   chest = false
   bone = false
   key = false
+  bowAndArrow = false
+  strengthPotion = 0
+  morphPotion = 0
   Skyward = false
   Shishkebab = false
   Fallen = false
@@ -1548,6 +2107,13 @@ if(hero == true && inputTalk == "2" && part4 == true && rock == true){
   fightOneTurn2 = false
   fightOneTurnFour = false
   fightOneTurn3 = false
+  fightATurnA = false
+  fightATurn1 = false
+  fight1TurnA = false
+  fightOneTurnA = false
+  fightATurnOne = false
+  fightBTurnB = false
+  fightCTurnC = false
   goblin1Life = 5
   firstcave = false
   Traveller = false
@@ -1587,6 +2153,9 @@ if(hero == true && inputTalk == "2" && part4 == true && rock == true){
   chest = false
   bone = false
   key = false
+  bowAndArrow = false
+  strengthPotion = 0
+  morphPotion = 0
   Skyward = false
   Shishkebab = false
   Fallen = false
@@ -1677,6 +2246,13 @@ if(hero == true && inputTalk == "2" && part4 == true && rocky == true){
   fightOneTurn2 = false
   fightOneTurnFour = false
   fightOneTurn3 = false
+  fightATurnA = false
+  fightATurn1 = false
+  fight1TurnA = false
+  fightOneTurnA = false
+  fightATurnOne = false
+  fightBTurnB = false
+  fightCTurnC = false
   goblin1Life = 5
   firstcave = false
   Traveller = false
@@ -1716,6 +2292,9 @@ if(hero == true && inputTalk == "2" && part4 == true && rocky == true){
   chest = false
   bone = false
   key = false
+  bowAndArrow = false
+  strengthPotion = 0
+  morphPotion = 0
   Skyward = false
   Shishkebab = false
   Fallen = false
@@ -1756,6 +2335,13 @@ if(hero == true && inputTalk == "3" && part4 == true && rocky == true){
   fightOneTurn2 = false
   fightOneTurnFour = false
   fightOneTurn3 = false
+  fightATurnA = false
+  fightATurn1 = false
+  fight1TurnA = false
+  fightOneTurnA = false
+  fightATurnOne = false
+  fightBTurnB = false
+  fightCTurnC = false
   goblin1Life = 5
   firstcave = false
   Traveller = false
@@ -1795,6 +2381,9 @@ if(hero == true && inputTalk == "3" && part4 == true && rocky == true){
   chest = false
   bone = false
   key = false
+  bowAndArrow = false
+  strengthPotion = 0
+  morphPotion = 0
   Skyward = false
   Shishkebab = false
   Fallen = false
@@ -1998,6 +2587,13 @@ if(hero == true && inputTalk == "3" && part4 == true && darkers == true){
     fightOneTurn2 = false
     fightOneTurnFour = false
     fightOneTurn3 = false
+    fightATurnA = false
+    fightATurn1 = false
+    fight1TurnA = false
+    fightOneTurnA = false
+    fightATurnOne = false
+    fightBTurnB = false
+    fightCTurnC = false
     goblin1Life = 5
     firstcave = false
     Traveller = false
@@ -2037,6 +2633,9 @@ if(hero == true && inputTalk == "3" && part4 == true && darkers == true){
     chest = false
     bone = false
     key = false
+    bowAndArrow = false
+    strengthPotion = 0
+    morphPotion = 0
     Skyward = false
     Shishkebab = false
     Fallen = false
@@ -2224,6 +2823,13 @@ if(hero == true && inputTalk == "1" && part4 == true && coldead == true){
   fightOneTurn2 = false
   fightOneTurnFour = false
   fightOneTurn3 = false
+  fightATurnA = false
+  fightATurn1 = false
+  fight1TurnA = false
+  fightOneTurnA = false
+  fightATurnOne = false
+  fightBTurnB = false
+  fightCTurnC = false
   goblin1Life = 5
   firstcave = false
   Traveller = false
@@ -2263,6 +2869,9 @@ if(hero == true && inputTalk == "1" && part4 == true && coldead == true){
   chest = false
   bone = false
   key = false
+  bowAndArrow = false
+  strengthPotion = 0
+  morphPotion = 0
   Skyward = false
   Shishkebab = false
   Fallen = false
@@ -2303,6 +2912,13 @@ if(hero == true && inputTalk == "2" && part4 == true && coldead == true){
   fightOneTurn2 = false
   fightOneTurnFour = false
   fightOneTurn3 = false
+  fightATurnA = false
+  fightATurn1 = false
+  fight1TurnA = false
+  fightOneTurnA = false
+  fightATurnOne = false
+  fightBTurnB = false
+  fightCTurnC = false
   goblin1Life = 5
   firstcave = false
   Traveller = false
@@ -2342,6 +2958,9 @@ if(hero == true && inputTalk == "2" && part4 == true && coldead == true){
   chest = false
   bone = false
   key = false
+  bowAndArrow = false
+  strengthPotion = 0
+  morphPotion = 0
   Skyward = false
   Shishkebab = false
   Fallen = false
@@ -2382,6 +3001,13 @@ if(hero == true && inputTalk == "3" && part4 == true && coldead == true){
   fightOneTurn2 = false
   fightOneTurnFour = false
   fightOneTurn3 = false
+  fightATurnA = false
+  fightATurn1 = false
+  fight1TurnA = false
+  fightOneTurnA = false
+  fightATurnOne = false
+  fightBTurnB = false
+  fightCTurnC = false
   goblin1Life = 5
   firstcave = false
   Traveller = false
@@ -2421,6 +3047,9 @@ if(hero == true && inputTalk == "3" && part4 == true && coldead == true){
   chest = false
   bone = false
   key = false
+  bowAndArrow = false
+  strengthPotion = 0
+  morphPotion = 0
   Skyward = false
   Shishkebab = false
   Fallen = false
